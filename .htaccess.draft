@@ -1,0 +1,14 @@
+# Adapt Print static migration draft
+# Preserve existing WordPress readable URLs where possible by publishing same paths.
+# Redirect old query-style internal menu links to final clean paths if server supports it:
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^page_id=149$
+RewriteRule ^$ /about-us/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^page_id=150$
+RewriteRule ^$ /services/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^page_id=152$
+RewriteRule ^$ /portfolio/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^page_id=151$
+RewriteRule ^$ /contact-us/? [R=301,L]
+Redirect 301 /wp-sitemap.xml /sitemap.xml
+Redirect 301 /author/adaptprintsalesgmail-com/ /
