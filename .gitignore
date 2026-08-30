@@ -6,3 +6,12 @@ Thumbs.db
 qa-report*.json
 package-lock.json
 package.json
+# local build/QA helpers (not part of public preview)
+build_site.py
+postprocess_performance.py
+prepare_github_pages_preview.py
+qa_all_v2.js
+qa_preview.js
+ui_audit_current.js
+visual_capture_v2.js
+GITHUB_PAGES_PREVIEW.md

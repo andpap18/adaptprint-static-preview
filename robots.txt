@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://adaptprint.gr/sitemap.xml
+Disallow: /
