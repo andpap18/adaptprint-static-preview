@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^page_id=149$
+RewriteRule ^$ /about-us/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^page_id=150$
+RewriteRule ^$ /services/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^page_id=151$
+RewriteRule ^$ /contact-us/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^page_id=152$
+RewriteRule ^$ /portfolio/? [R=301,L]
+Redirect 301 /dtf-me-to-metro/ /stampes-dtf-me-to-metro/
+Redirect 301 /χονδρική-2/ /ektyposeis-xondrikis/
