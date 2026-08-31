@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://adaptprint.gr/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/dtf-me-to-metro/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/services/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/ektyposeis-se-mplouzakia/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/ektyposeis-se-koupes/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/diafimistika-eidi/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/portfolio/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/χονδρική-2/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/about-us/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/contact-us/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/terms-and-conditions/</loc><priority>1.0</priority></url>
-<url><loc>https://adaptprint.gr/privacy-policy/</loc><priority>1.0</priority></url>
+<url><loc>https://adaptprint.gr/dtf-me-to-metro/</loc><priority>0.95</priority></url>
+<url><loc>https://adaptprint.gr/services/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/ektyposeis-se-mplouzakia/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/ektyposeis-se-koupes/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/diafimistika-eidi/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/portfolio/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/χονδρική-2/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/about-us/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/contact-us/</loc><priority>0.8</priority></url>
+<url><loc>https://adaptprint.gr/terms-and-conditions/</loc><priority>0.4</priority></url>
+<url><loc>https://adaptprint.gr/privacy-policy/</loc><priority>0.4</priority></url>
 </urlset>
