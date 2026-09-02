@@ -1,0 +1,200 @@
+{
+  "source": "C:\\Users\\andpa\\Desktop\\_ORGANIZED\\ADAPT_PRINT\\wetransfer_image00001-jpeg_2026-09-01_2141",
+  "count": 24,
+  "missing": [],
+  "note": "No exact paper-roll/60cm photo found in reviewed batch; wholesale roll imagery should use existing roll-production assets until client sends a specific roll photo.",
+  "assets": [
+    {
+      "src": "image00001.jpeg",
+      "dest": "assets/images/client-new/dtf-stampa-se-mplouzaki-pragmatiko-deigma.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 194774,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00002.jpeg",
+      "dest": "assets/images/client-new/dtf-ektyposi-se-rouxo-leptomereia.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 140354,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00004.jpeg",
+      "dest": "assets/images/client-new/epaggelmatiki-endysi-me-logo-dtf.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 371786,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00006.jpeg",
+      "dest": "assets/images/client-new/gileko-ergasias-me-logo-dtf.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 137172,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00009.jpeg",
+      "dest": "assets/images/client-new/dtf-efarmogi-se-yfasma-closeup.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 404306,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00025.jpeg",
+      "dest": "assets/images/client-new/mplouzakia-syllogou-dtf-paragogi.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 159712,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00031.jpeg",
+      "dest": "assets/images/client-new/gileka-asfaleias-me-ektyposi.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 176766,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00059.jpeg",
+      "dest": "assets/images/client-new/maziki-paragogi-endysis-b2b.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 139258,
+      "category": "dtf_apparel"
+    },
+    {
+      "src": "image00035.jpeg",
+      "dest": "assets/images/client-new/stylo-me-logo-uv-ektyposi.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 130262,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00039.jpeg",
+      "dest": "assets/images/client-new/anaptires-me-logo-uv-ektyposi.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 170460,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00022.jpeg",
+      "dest": "assets/images/client-new/souber-me-anaglyfi-uv-ektyposi.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 176454,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00018.jpeg",
+      "dest": "assets/images/client-new/notebook-etairiko-doro-me-logo.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 181282,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00047.jpeg",
+      "dest": "assets/images/client-new/lanyards-me-logo-diafimistika.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 191200,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00056.jpeg",
+      "dest": "assets/images/client-new/omprela-me-logo-diafimistiko-eidos.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 96740,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00067.jpeg",
+      "dest": "assets/images/client-new/kapela-me-logo-diafimistiko-eidos.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 217308,
+      "category": "uv_promo"
+    },
+    {
+      "src": "image00050.jpeg",
+      "dest": "assets/images/client-new/koupa-sublimation-me-fotografia.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 57782,
+      "category": "sublimation"
+    },
+    {
+      "src": "image00042.jpeg",
+      "dest": "assets/images/client-new/koupes-sublimation-pragmatika-deigmata.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 154308,
+      "category": "sublimation"
+    },
+    {
+      "src": "image00062.jpeg",
+      "dest": "assets/images/client-new/metalliko-leyko-mpoukali-sublimation.webp",
+      "width": 1400,
+      "height": 1400,
+      "bytes": 68476,
+      "category": "sublimation"
+    },
+    {
+      "src": "image00055.jpeg",
+      "dest": "assets/images/client-new/set-koupes-sublimation.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 52102,
+      "category": "sublimation"
+    },
+    {
+      "src": "image00028.jpeg",
+      "dest": "assets/images/client-new/sublimation-se-polyesteriko-yfasma.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 102994,
+      "category": "sublimation"
+    },
+    {
+      "src": "image00026.jpeg",
+      "dest": "assets/images/client-new/koupa-kai-doro-sublimation-detail.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 177174,
+      "category": "sublimation"
+    },
+    {
+      "src": "image00060.jpeg",
+      "dest": "assets/images/client-new/maziki-paragogi-diafimistikon-eidon.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 133902,
+      "category": "production"
+    },
+    {
+      "src": "image00065.jpeg",
+      "dest": "assets/images/client-new/b2b-lanyards-se-posotita.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 188576,
+      "category": "production"
+    },
+    {
+      "src": "image00068.jpeg",
+      "dest": "assets/images/client-new/lanyards-paragogi-xondrikis.webp",
+      "width": 1050,
+      "height": 1400,
+      "bytes": 151388,
+      "category": "production"
+    }
+  ]
+}
