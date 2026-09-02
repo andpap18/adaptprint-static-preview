@@ -147,6 +147,12 @@ CSS = r'''
 @media(max-width:820px){.site-header,.header-inner{background:var(--paper)!important}.menu-toggle.btn,.menu-toggle.btn-ghost{background:var(--paper)!important;border-color:rgba(13,14,16,.12)!important}}
 @media(max-width:460px){.menu-toggle.btn,.menu-toggle.btn-ghost{padding:.62rem .9rem}}
 
+/* Match header surface to uploaded logo white background to remove two-tone block */
+.site-header,.site-header.scrolled,.header-inner{background:#fff!important}
+.menu-toggle.btn,.menu-toggle.btn-ghost{background:#fff!important}
+.nav.open{background:#fff!important}
+@media(max-width:820px){.site-header,.site-header.scrolled,.header-inner{background:#fff!important}.menu-toggle.btn,.menu-toggle.btn-ghost{background:#fff!important}.nav{background:#fff!important}}
+
 '''
 
 JS = r'''
