@@ -7,4 +7,4 @@
 - Owner/legal-approved Terms and Privacy.
 - Coordinates 37.944, 23.648 must be verified in Google Business Profile before live.
 - Logo tagline in supplied high-resolution file appears to say “ΕΠΑΓΓΕΛΜΑΤΙΣΜΟΣ ΕΝΔΥΣΗ”; confirm corrected artwork before using it large.
-- Images with personal/contact details need redaction or explicit approval before unredacted publication.
+- Public layout must avoid artificial blur/redaction boxes; use clean approved images or alternate product photos instead.

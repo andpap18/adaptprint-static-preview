@@ -1,0 +1,232 @@
+{
+  "over2": {},
+  "dup": [],
+  "euros": [],
+  "pii": [],
+  "overlap_percent": 9.09,
+  "common": [
+    "DTF, UV, sublimation, ένδυση, κούπες και διαφημιστικά είδη στον Πειραιά."
+  ],
+  "table": [
+    {
+      "image": "/assets/images/client-new/anamnistikes-plaketes-uv-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "anaglyfi-uv-ektyposi-diafimistika/index.html",
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/dtf-ektyposi-se-rouxo-leptomereia.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/dtf-stampa-se-mplouzaki-pragmatiko-deigma.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/ektypotiko-mixanima-uv-dtf-paragogi.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "services/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/g-rider-mavra-mplouzakia-xrysi-stampa-dtf.webp",
+      "pages_count": 2,
+      "pages": [
+        "ektyposeis-se-mplouzakia/index.html",
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/koupa-kai-doro-sublimation-detail-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "sublimation-se-koupes-mpoukalia-yfasma/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/koupa-sublimation-me-fotografia-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/koupes-sublimation-pragmatika-deigmata-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "portfolio/index.html",
+        "sublimation-se-koupes-mpoukalia-yfasma/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/metalliko-leyko-mpoukali-sublimation.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "services/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/set-koupes-sublimation-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "portfolio/index.html",
+        "sublimation-se-koupes-mpoukalia-yfasma/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/thermos-kai-mpoukalia-sublimation.webp",
+      "pages_count": 2,
+      "pages": [
+        "portfolio/index.html",
+        "sublimation-se-koupes-mpoukalia-yfasma/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/uv-anaglyfi-ektyposi-se-stylo-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "services/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/uv-ektyposi-se-diafimistika-eidi-protected.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "services/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/xondriki-ektyposi-xartiou-se-rolo-60cm.webp",
+      "pages_count": 2,
+      "pages": [
+        "ektyposeis-xondrikis/index.html",
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/ektypotiko-mixanima-paragogis-uv-dtf.webp",
+      "pages_count": 2,
+      "pages": [
+        "about-us/index.html",
+        "services/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/rola-dtf-me-to-metro-ergastirio.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "services/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/stampes-dtf-me-to-metro-rolo.webp",
+      "pages_count": 2,
+      "pages": [
+        "index.html",
+        "stampes-dtf-me-to-metro/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/adapt-print-katastima-peiraias.webp",
+      "pages_count": 1,
+      "pages": [
+        "about-us/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/adapt-print-pragmatiki-douleia-paragogis.webp",
+      "pages_count": 1,
+      "pages": [
+        "about-us/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/b2b-lanyards-se-posotita-protected.webp",
+      "pages_count": 1,
+      "pages": [
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/ergastirio-ektyposeon-paragogi-rolo.webp",
+      "pages_count": 1,
+      "pages": [
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/kapela-4-epoches-tria-xromata.webp",
+      "pages_count": 1,
+      "pages": [
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/maziki-paragogi-diafimistikon-eidon.webp",
+      "pages_count": 1,
+      "pages": [
+        "diafimistika-eidi/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/maziki-paragogi-endysis-b2b.webp",
+      "pages_count": 1,
+      "pages": [
+        "portfolio/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/souber-me-anaglyfi-uv-ektyposi.webp",
+      "pages_count": 1,
+      "pages": [
+        "diafimistika-eidi/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/client-new/sublimation-se-polyesteriko-yfasma.webp",
+      "pages_count": 1,
+      "pages": [
+        "sublimation-se-koupes-mpoukalia-yfasma/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/dtf-efarmogi-se-skouro-yfasma.webp",
+      "pages_count": 1,
+      "pages": [
+        "ektyposeis-se-mplouzakia/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/dtf-paragogi-leptomereia-stampas-protected.webp",
+      "pages_count": 1,
+      "pages": [
+        "stampes-dtf-me-to-metro/index.html"
+      ]
+    },
+    {
+      "image": "/assets/images/leptomereia-stampas-se-yfasma.webp",
+      "pages_count": 1,
+      "pages": [
+        "ektyposeis-se-mplouzakia/index.html"
+      ]
+    }
+  ]
+}
