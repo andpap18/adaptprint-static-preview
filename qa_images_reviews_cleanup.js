@@ -19,7 +19,7 @@ const widths=[390,768,1280,1440,1920];
  }
  const p=await b.newPage({viewport:{width:390,height:900}, isMobile:true}); await p.goto(base+'/',{waitUntil:'networkidle'});
  await p.screenshot({path:path.join(out,'home-mobile-full.png'),fullPage:true});
- await p.locator('.trust-strip').screenshot({path:path.join(out,'home-trust-strip.png')});
+ await p.locator('.trust-metrics-strip, .trust-strip').first().screenshot({path:path.join(out,'home-trust-strip.png')});
  await p.locator('.social-proof').first().screenshot({path:path.join(out,'home-reviews.png')});
  await p.locator('.service-catalog').screenshot({path:path.join(out,'home-services.png')});
  await p.goto(base+'/ektyposeis-se-koupes/',{waitUntil:'networkidle'}); await p.screenshot({path:path.join(out,'mugs-mobile.png'),fullPage:true});
