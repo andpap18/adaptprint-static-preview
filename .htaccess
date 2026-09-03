@@ -9,3 +9,4 @@ RewriteCond %{QUERY_STRING} ^page_id=152$
 RewriteRule ^$ /portfolio/? [R=301,L]
 Redirect 301 /dtf-me-to-metro/ /stampes-dtf-me-to-metro/
 Redirect 301 /χονδρική-2/ /ektyposeis-xondrikis/
+Redirect 301 /ektyposeis-se-koupes/ /sublimation-se-koupes-mpoukalia-yfasma/
