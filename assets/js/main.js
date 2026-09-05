@@ -1,6 +1,39 @@
 
 const header=document.querySelector('.site-header');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Decorative copies only; original text and its normal ink remain untouched.
+const registrationMotion=matchMedia('(prefers-reduced-motion: reduce)');
+const registrationSeen=new WeakSet();
+function registerTitle(title){
+  if(registrationSeen.has(title))return;
+  registrationSeen.add(title);
+  if(registrationMotion.matches||!title.animate)return;
+  const text=title.textContent;
+  const dark=title.dataset.registration==='dark';
+  const layers=[['var(--cyan)',-3,0,1],['var(--magenta)',3,0,1],['var(--yellow)',0,2,.55]].map(([ink,x,y,strength])=>{
+    const layer=document.createElement('span');
+    layer.className='registration-layer';layer.hidden=true;layer.setAttribute('aria-hidden','true');
+    layer.textContent=text;layer.style.setProperty('--registration-ink',ink);title.append(layer);
+    return {layer,x,y,opacity:(dark?.4:.5)*strength};
+  });
+  title.classList.add('registration-running');
+  const animations=layers.map(({layer,x,y,opacity})=>layer.animate([
+    {transform:`translate(${x}px,${y}px)`,opacity},
+    {transform:'translate(0px,0px)',opacity:0}
+  ],{duration:500,delay:0,easing:'linear',iterations:1,fill:'none'}));
+  const cleanup=()=>{animations.forEach(a=>a.cancel());layers.forEach(({layer})=>layer.remove());title.classList.remove('registration-running');registrationMotion.removeEventListener('change',cleanup);};
+  registrationMotion.addEventListener('change',cleanup);
+  Promise.all(animations.map(a=>a.finished)).then(cleanup,cleanup);
+}
+document.querySelectorAll('h1[data-registration]').forEach(registerTitle);
+if('IntersectionObserver'in window){
+  const titleObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){titleObserver.unobserve(entry.target);registerTitle(entry.target);}
+  }),{threshold:0});
+  document.querySelectorAll('h2[data-registration]').forEach(title=>titleObserver.observe(title));
+}
+
 let lastScrollY=scrollY;
 addEventListener('scroll',()=>{header?.classList.toggle('scrolled',scrollY>8);lastScrollY=scrollY},{passive:true});
 const toggle=document.querySelector('.menu-toggle');
