@@ -6,12 +6,14 @@ addEventListener('scroll',()=>{header?.classList.toggle('scrolled',scrollY>8);la
 const toggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#nav.mobile-nav')||document.querySelector('#nav');
 const backdrop=document.querySelector('.nav-backdrop');
+const panelClose=document.querySelector('.nav-panel-close');
 const focusableSelector='a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
 let menuLastFocus=null,lockedY=0;
 function menuLinks(){return nav?[...nav.querySelectorAll(focusableSelector)]:[]}
 function openMenu(){if(!toggle||!nav)return;menuLastFocus=document.activeElement;lockedY=scrollY;nav.classList.add('open');backdrop?.classList.add('open');toggle.classList.add('is-open');toggle.setAttribute('aria-expanded','true');document.documentElement.classList.add('menu-open');document.body.classList.add('menu-open');document.documentElement.style.overflow='hidden';document.body.style.overflow='hidden';setTimeout(()=>menuLinks()[0]?.focus({preventScroll:true}),80)}
 function closeMenu(returnFocus=true){if(!toggle||!nav)return;const y=lockedY||lastScrollY||0;nav.classList.remove('open');backdrop?.classList.remove('open');toggle.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');document.documentElement.classList.remove('menu-open');document.body.classList.remove('menu-open');document.documentElement.style.overflow='';document.body.style.overflow='';if(returnFocus)(menuLastFocus||toggle).focus?.({preventScroll:true});const restore=()=>{const sc=document.scrollingElement||document.documentElement;sc.scrollTop=y;window.scrollTo({top:y,left:0,behavior:'auto'})};requestAnimationFrame(()=>{restore();setTimeout(restore,50);setTimeout(restore,150);setTimeout(restore,300)})}
 toggle?.addEventListener('click',()=>nav?.classList.contains('open')?closeMenu(true):openMenu());
+panelClose?.addEventListener('click',()=>closeMenu(true));
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu(false)));
 backdrop?.addEventListener('click',()=>closeMenu(true));
 document.addEventListener('pointerdown',e=>{if(!nav?.classList.contains('open'))return;if(nav.contains(e.target)||toggle?.contains(e.target))return;closeMenu(true)});
