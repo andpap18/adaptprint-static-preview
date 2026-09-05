@@ -4,7 +4,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let lastScrollY=scrollY;
 addEventListener('scroll',()=>{header?.classList.toggle('scrolled',scrollY>8);lastScrollY=scrollY},{passive:true});
 const toggle=document.querySelector('.menu-toggle');
-const nav=document.querySelector('.nav');
+const nav=document.querySelector('#nav.mobile-nav')||document.querySelector('#nav');
 const backdrop=document.querySelector('.nav-backdrop');
 const focusableSelector='a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
 let menuLastFocus=null,lockedY=0;

@@ -267,7 +267,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let lastScrollY=scrollY;
 addEventListener('scroll',()=>{header?.classList.toggle('scrolled',scrollY>8);lastScrollY=scrollY},{passive:true});
 const toggle=document.querySelector('.menu-toggle');
-const nav=document.querySelector('.nav');
+const nav=document.querySelector('#nav.mobile-nav')||document.querySelector('#nav');
 const backdrop=document.querySelector('.nav-backdrop');
 const focusableSelector='a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
 let menuLastFocus=null,lockedY=0;
@@ -405,6 +405,11 @@ body.menu-open .nav.open{display:grid!important}
 .site-header,.site-header.scrolled{height:var(--header-h)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:box-shadow 160ms var(--ease)!important;will-change:auto!important;contain:layout paint!important}.header-inner,.site-header.scrolled .header-inner{height:var(--header-h)!important;min-height:var(--header-h)!important;padding-top:0!important;padding-bottom:0!important;transition:none!important}.site-header.scrolled{box-shadow:0 8px 24px rgba(13,14,16,.08)!important}.topbar{transition:none!important}.topbar::before,.site-header::before{display:none!important}.reveal{will-change:auto!important;transition:opacity 260ms var(--ease),transform 260ms var(--ease)!important}.reveal:not(.visible){transform:translate3d(0,10px,0)!important}.reveal.from-right:not(.visible),.reveal.from-left:not(.visible){transform:translate3d(0,10px,0)!important}.service-tile a,.work-card,.work-cta{will-change:auto!important}.hero-live,.page-hero,.contact-hero,.print-proof-collage{contain:paint!important}.registration-motion .reg{will-change:auto!important}.cmyk-marquee div{will-change:auto!important}
 @media(max-width:1179px){.site-header,.site-header.scrolled{height:74px!important}.header-inner,.site-header.scrolled .header-inner{height:74px!important;min-height:74px!important;max-height:74px!important}.reveal,.reveal:not(.visible),.reveal.from-right:not(.visible),.reveal.from-left:not(.visible){opacity:1!important;transform:none!important;transition:none!important}.registration-motion .reg{animation:none!important}.cmyk-marquee div{animation-duration:52s!important}}
 
+
+/* Desktop header restoration after mobile body-level backdrop split */
+@media(min-width:1024px){body.menu-open .site-header{z-index:1001!important}.site-header,.site-header.scrolled{position:sticky!important;z-index:70!important;height:92px!important;min-height:92px!important;max-height:92px!important}.header-inner{display:grid!important;grid-template-columns:clamp(150px,14vw,190px) minmax(0,1fr) auto!important;align-items:center!important;height:92px!important;min-height:92px!important;max-height:92px!important;gap:clamp(12px,1.5vw,26px)!important;padding-top:0!important;padding-bottom:0!important}.logo.brand-lockup{grid-column:1!important;width:clamp(142px,13vw,178px)!important;min-width:0!important}.logo.brand-lockup img{max-width:100%!important;max-height:68px!important}.menu-toggle{display:none!important}body:not(.menu-open) .desktop-nav:not(.open),.desktop-nav{grid-column:2!important;position:static!important;display:flex!important;visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;width:auto!important;max-width:100%!important;height:46px!important;min-height:46px!important;max-height:46px!important;padding:0!important;overflow:visible!important;background:transparent!important;box-shadow:none!important;z-index:auto!important;align-items:center!important;justify-content:center!important;gap:clamp(0px,.35vw,6px)!important}.nav-link{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:44px!important;padding:.65rem clamp(.42rem,.7vw,.82rem)!important;font-size:clamp(.78rem,.88vw,.95rem)!important;line-height:1!important;white-space:nowrap!important;opacity:1!important;visibility:visible!important;transform:none!important}.nav-mobile-cta{display:none!important}.header-actions{grid-column:3!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;height:92px!important;gap:.55rem!important}.header-actions .btn{width:auto!important;min-height:42px!important;padding:.7rem clamp(.7rem,.9vw,1rem)!important;font-size:clamp(.8rem,.9vw,.95rem)!important}body:not(.menu-open) .mobile-nav:not(.open),.mobile-nav,.nav-backdrop{display:none!important}}
+@media(max-width:1023px){body.menu-open .site-header{z-index:1001!important}.desktop-nav{display:none!important}.nav-backdrop{display:block}.menu-toggle{display:inline-flex!important}}
+
 @media(prefers-reduced-motion:reduce){.registration-motion .reg,.cmyk-marquee div{animation:none}.service-tile a,.work-card,.work-cta,.nav,.nav-link,.nav-backdrop,.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{transition:none}.reveal,.reveal.from-right,.reveal.visible{opacity:1;transform:none;transition:none}}
 '''
 
@@ -414,12 +419,16 @@ for p in pages:
     out=ROOT/p['path']; out.parent.mkdir(parents=True,exist_ok=True)
     html_out=page_html(p)
     html_out=html_out.replace('<button class="menu-toggle btn btn-ghost" aria-expanded="false" aria-controls="nav" type="button"><span>Μενού</span></button><nav class="nav" id="nav" aria-label="Κύρια πλοήγηση">', '<button class="menu-toggle btn btn-ghost" aria-expanded="false" aria-controls="nav" type="button" aria-label="Άνοιγμα μενού"><span></span></button><nav class="nav" id="nav" aria-label="Κύρια πλοήγηση">')
-    html_out=html_out.replace('</nav><div class="header-actions">', '<div class="nav-mobile-cta"><a href="tel:+302****1704">211 21 81 704</a><a href="{CONTACT["whatsapp"]}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="btn btn-primary" href="/contact-us/#quote">Προσφορά</a></div></nav><button class="nav-backdrop" type="button" aria-label="Κλείσιμο μενού"></button><div class="header-actions">')
-    mobile_overlay=re.search(r'(<nav[^>]*id="nav"[^>]*class="nav"[^>]*>.*?</nav><button class="nav-backdrop" type="button" aria-label="Κλείσιμο μενού"></button>)', html_out)
-    if mobile_overlay:
-        overlay=mobile_overlay.group(1)
-        html_out=html_out[:mobile_overlay.start()]+html_out[mobile_overlay.end():]
-        html_out=html_out.replace('</header>', '</header>'+overlay, 1)
+    html_out=html_out.replace('</nav><div class="header-actions">', '<div class="nav-mobile-cta"><a href="tel:+302****1704">211 21 81 704</a><a href="{CONTACT["whatsapp"]}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="btn btn-primary" href="/contact-us/#quote">Προσφορά</a></div></nav><div class="header-actions">')
+    nav_match=re.search(r'(<nav[^>]*id="nav"[^>]*class="nav"[^>]*>.*?</nav>)', html_out)
+    if nav_match:
+        nav_full=nav_match.group(1)
+        desktop_nav=re.sub(r'<div class="nav-mobile-cta">.*?</div>', '', nav_full, flags=re.S)
+        desktop_nav=desktop_nav.replace('id="nav" class="nav"', 'id="desktop-nav" class="nav desktop-nav"')
+        desktop_nav=desktop_nav.replace('class="nav" id="nav"', 'class="nav desktop-nav" id="desktop-nav"')
+        mobile_nav=nav_full.replace('class="nav"', 'class="nav mobile-nav"', 1).replace('aria-label="Κύρια πλοήγηση"', 'aria-label="Κύρια πλοήγηση κινητού"', 1)
+        html_out=html_out[:nav_match.start()]+desktop_nav+html_out[nav_match.end():]
+        html_out=html_out.replace('</header>', '</header><button class="nav-backdrop" type="button" aria-label="Κλείσιμο μενού"></button>'+mobile_nav, 1)
     out.write_text(html_out,encoding='utf-8')
 # preview/static redirect fallbacks; real 301 goes in .htaccess for live.
 for old,target in [('dtf-me-to-metro/index.html','/stampes-dtf-me-to-metro/'),('χονδρική-2/index.html','/ektyposeis-xondrikis/'),('ektyposeis-se-koupes/index.html','/sublimation-se-koupes-mpoukalia-yfasma/')]:
