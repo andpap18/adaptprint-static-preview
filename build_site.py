@@ -450,6 +450,10 @@ body.menu-open .floating-whatsapp{display:none!important}
 .hero-photographic .hero-copy p{color:var(--paper-2);font-size:1rem;line-height:1.65;max-width:660px;}
 .hero-photographic .hero-actions{gap:12px;margin-top:24px;}
 .hero-photographic .btn-secondary{background:transparent;color:var(--paper);border-color:var(--line-dark);}
+/* Reserve measured fallback/final text slots without changing shared fonts. */
+@media(min-width:1024px){.hero-photographic .hero-copy p{min-block-size:3lh;}}
+@media(max-width:1100px){.hero-photographic .kicker{min-block-size:36px;}}
+@media(min-width:900px) and (max-width:1023px){.hero-photographic h1{min-block-size:3lh;}}
 @media(max-width:1023px){.hero-photographic{padding:28px var(--gutter) 36px;}.hero-photographic .hero-frame{grid-template-columns:1fr;gap:28px;max-width:800px;}.hero-photographic .hero-copy{max-width:640px;justify-self:end;}.hero-photographic h1{font-size:clamp(2.2rem,5vw,3.1rem);}}
 '''
 
