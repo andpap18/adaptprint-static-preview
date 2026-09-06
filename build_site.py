@@ -865,6 +865,7 @@ main .contact-shop .storefront{display:block;width:140px;height:auto;max-width:1
 main .contact-shop .hours-list{margin:0;padding:0}
 main .contact-shop .hours-list li{display:grid;grid-template-columns:minmax(70px,.9fr) minmax(0,1.4fr);gap:8px;padding:5px 0;font-size:.82rem;align-items:start}
 main .contact-shop .hours-list b{white-space:normal}
+main .contact-shop .hours-list > li > span{color:#0d0e10}
 main .contact-shop .small{margin-top:20px;max-width:900px}
 @media(max-width:1179px){main .shop-layout{grid-template-columns:1fr}main .shop-side{grid-template-columns:180px 1fr}main .contact-shop .storefront{width:180px}}
 @media(max-width:767px){main .contact-methods{grid-template-columns:1fr;gap:12px}main .contact-methods>*{min-height:110px;padding:16px}main .contact-shop .map-embed{aspect-ratio:4/3;min-height:0}main .shop-side{grid-template-columns:100px 1fr;gap:14px}main .contact-shop .storefront{width:100px}}
@@ -878,6 +879,9 @@ main .scroll-ruler i{display:block;width:100%;height:270px;background:repeating-
 @media(max-width:767px){main .scroll-ruler{top:var(--ruler-top,74px);left:0;width:100%;height:2px;opacity:.5}main .scroll-ruler i{height:2px;background:var(--ink);transform:scaleX(0)}}
 @media(prefers-reduced-motion:reduce){main .scroll-ruler{display:none}}
 '''
+
+# Round9 closure: sole approved mobile-menu color exception.
+R9_CSS += '\n.mobile-nav.open .nav-mobile-cta .btn-primary{color:#0d0e10!important;border-color:#0d0e10!important}\n'
 
 # Content transformation is applied to the frozen verified HTML below.
 
