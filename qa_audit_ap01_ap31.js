@@ -25,8 +25,8 @@ assert(/step="0\.1"/.test(dtf)&&/aria-live="polite"/.test(dtf),'DTF decimal inpu
 assert(/name="service_context"/.test(dtf)&&/name="project_context"/.test(dtf),'quote context fields missing');
 const contact=html.find(x=>x.p.endsWith(path.join('contact-us','index.html'))).body;
 assert(/href="tel:\+302112181704"/.test(contact),'main contact mobile tel link missing');
-assert(!/<iframe\b/.test(contact)&&/class="btn btn-secondary map-load"/.test(contact)&&/data-map-src="https:\/\/www\.google\.com\/maps/.test(contact),'map must be user-loaded, not immediately requested');
-assert(/document\.createElement\('iframe'\)/.test(js)&&/map-load/.test(js),'map click insertion missing');
+assert(/<iframe\b[^>]*src="https:\/\/www\.google\.com\/maps/.test(contact)&&/loading="eager"/.test(contact),'map must load immediately on the contact page');
+assert(!/map-load|data-map-src/.test(contact),'obsolete deferred-map controls must be removed');
 preview.forEach(x=>assert(/"latitude": ?37\.9561061, ?"longitude": ?23\.6406674/.test(x.body),`AP-21 coordinates missing: ${x.p}`));
 const facebook='https://www.facebook.com/profile.php?id=100091100274168&mibextid=wwXIfr&rdid=kkdWRaJcPuOdVVBY&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F196ubr4Kzg%2F%3Fmibextid%3DwwXIfr#';
 html.forEach(x=>{if(x.body.includes('facebook'))assert(x.body.includes(facebook),`footer Facebook href wrong: ${x.p}`)});
