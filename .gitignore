@@ -1,3 +1,7 @@
+# Build / local tooling artifacts.
+dist-production/
+node_modules/
+
 # Private MyIP/cPanel form configuration — never deploy inside public_html or commit.
 adaptprint-quote-config.php
 /private/
