@@ -1,0 +1,66 @@
+/* Contact-only presentation. Shared header, footer and business logic are untouched. */
+#main.contact-page { background:#faf7f0; }
+#main.contact-page > section.contact-intro { padding:36px 0 48px!important; }
+#main.contact-page .contact-intro__grid { display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:center; }
+#main.contact-page .contact-intro__copy { min-width:0; }
+#main.contact-page .contact-intro h1 { margin:12px 0 20px;font-size:clamp(2.3rem,4.4vw,4rem);line-height:1.06;max-width:650px; }
+#main.contact-page .contact-intro__copy > p { max-width:570px;font-size:1rem;line-height:1.7;margin-bottom:24px; }
+#main.contact-page .contact-intro__media { position:relative;isolation:isolate;margin:0;padding:10px;background:#fff;border:1px solid #e8dfd0;border-radius:28px 28px 80px 28px;box-shadow:14px 14px 0 #d8eff2; }
+#main.contact-page .contact-intro__media::before { content:"";position:absolute;z-index:1;right:26px;top:-8px;width:90px;height:8px;background:linear-gradient(90deg,#00a8c4 0 33%,#d92977 33% 66%,#f5cf35 66%); }
+#main.contact-page .contact-intro__image { width:100%;height:520px;object-fit:cover;object-position:center 35%;border-radius:20px 20px 70px 20px; }
+#main.contact-page .contact-methods { grid-template-columns:1fr 1fr;gap:10px; }
+#main.contact-page .contact-methods > * { min-height:72px;padding:14px 16px;border:1px solid #dfd7c9;border-radius:14px;background:#fffdf8;gap:2px; }
+#main.contact-page .contact-methods .phone-method { grid-column:1/-1;background:#ff922e;border-color:#ff922e;gap:8px; }
+#main.contact-page .contact-methods .phone-method span { color:#383025; }
+#main.contact-page .contact-methods > a:nth-child(2) { border-top:3px solid #0098b2; }
+#main.contact-page .contact-methods > a:nth-child(3) { border-top:3px solid #d92977; }
+#main.contact-page .contact-methods b { font-size:.94rem; }
+#main.contact-page .contact-action-icon { display:inline-block;vertical-align:-4px;margin-right:8px;flex:none; }
+#main.contact-page .contact-methods .phone-method > a { min-height:36px; }
+#main.contact-page .contact-methods > a:hover { transform:translateY(-2px);box-shadow:0 6px 16px #201a1010; }
+#main.contact-page .contact-methods .phone-method > a:hover { transform:none;box-shadow:none; }
+#main.contact-page a:focus-visible { outline:3px solid #00687d;outline-offset:4px; }
+#main.contact-page > section.contact-shop { padding:24px 0 44px!important; }
+#main.contact-page .shop-layout { grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:stretch; }
+#main.contact-page .shop-map { display:flex;flex-direction:column;min-width:0;padding:12px;background:#fff;border:1px solid #e3ded2;border-radius:24px; }
+#main.contact-page .contact-shop .map-embed { flex:1;aspect-ratio:auto;min-height:340px;margin:0 0 12px;border:0;border-radius:16px; }
+#main.contact-page .shop-map > .btn { width:100%;background:#fff8db;border-color:#e8d77e; }
+#main.contact-page .contact-visit-card { display:block;min-width:0;padding:28px;background:#fffdf8;border:1px solid #e3ded2;border-top:4px solid #e5ba20;border-radius:24px; }
+#main.contact-page .contact-visit-card h2 { font-size:2rem; }
+#main.contact-page .contact-visit-card > p { margin-bottom:26px; }
+#main.contact-page .shop-hours { width:100%;min-width:0; }
+#main.contact-page .contact-shop .hours-list li { grid-template-columns:minmax(90px,.8fr) minmax(0,1.4fr);padding:9px 0;gap:12px;font-size:.9rem;border-bottom:1px solid #e7e0d3; }
+#main.contact-page .contact-shop .hours-list li:last-child { border-bottom:0; }
+#main.contact-page .contact-shop .small { max-width:100%;font-size:.8rem;line-height:1.65;color:#555c63;margin:20px 0 0;padding-left:14px;border-left:3px solid #00a8c4; }
+#main.contact-page > section.contact-quote { padding:48px 0 56px!important;background:linear-gradient(120deg,#e9f5f5 0%,#f6eff3 65%,#fff5da 100%);border-top:1px solid #e5e1d9; }
+#main.contact-page .contact-quote > .wrap { max-width:1040px; }
+#main.contact-page .contact-quote .section-head { margin:0 0 24px; }
+#main.contact-page .contact-quote h2 { font-size:clamp(2rem,3.4vw,3rem); }
+#main.contact-page .contact-quote .quote-form { height:auto;background:#fff;box-shadow:0 12px 30px #44332908;border:1px solid #e4ded7;border-radius:24px;padding:clamp(20px,3vw,36px); }
+#main.contact-page .contact-quote .quote-form > .btn { justify-self:start;width:auto; }
+@media(max-width:900px) {
+  #main.contact-page .shop-layout { grid-template-columns:1fr; }
+  #main.contact-page .contact-shop .map-embed { flex:auto;aspect-ratio:16/9;min-height:280px; }
+  #main.contact-page .contact-visit-card { padding:24px; }
+}
+@media(max-width:480px) {
+  #main.contact-page .contact-visit-card { padding:22px 18px; }
+  #main.contact-page .contact-shop .hours-list li { grid-template-columns:minmax(75px,.75fr) minmax(0,1.4fr);font-size:.84rem;gap:8px; }
+  #main.contact-page .contact-shop .map-embed { aspect-ratio:4/3;min-height:0; }
+  #main.contact-page .contact-quote .quote-form > .btn { width:100%; }
+}
+@media(max-width:900px) {
+  #main.contact-page .contact-intro__grid { grid-template-columns:1fr;gap:28px; }
+  #main.contact-page .contact-intro__copy > p { max-width:none; }
+  #main.contact-page .contact-intro__media { max-width:650px;width:calc(100% - 12px);justify-self:start; }
+  #main.contact-page .contact-intro__image { height:400px;object-position:center 27%; }
+}
+@media(max-width:480px) {
+  #main.contact-page > section.contact-intro { padding:24px 0 36px!important; }
+  #main.contact-page .contact-intro h1 { font-size:2.2rem;margin:10px 0 16px; }
+  #main.contact-page .contact-intro__copy > p { font-size:.94rem;line-height:1.65;margin-bottom:18px; }
+  #main.contact-page .contact-methods { grid-template-columns:1fr;gap:8px; }
+  #main.contact-page .contact-methods > * { padding:12px 14px;min-height:64px; }
+  #main.contact-page .contact-methods .phone-method { min-height:84px; }
+  #main.contact-page .contact-intro__image { height:auto;aspect-ratio:1/1;object-position:center 24%; }
+}
