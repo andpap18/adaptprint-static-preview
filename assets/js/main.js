@@ -81,4 +81,59 @@ finePointer.addEventListener('change',resetTilts);motionPreference.addEventListe
 const ruler=document.querySelector('main .scroll-ruler');
 if(ruler){const mobileRuler=matchMedia('(max-width:767px)');let range=0,pending=0;const draw=()=>{pending=0;if(motionPreference.matches)return;const progress=range>0?Math.max(0,Math.min(1,scrollY/range)):0;ruler.firstElementChild.style.transform=mobileRuler.matches?`scaleX(${progress})`:`translateY(${-90*progress}px)`};const queue=()=>{if(!pending&&!motionPreference.matches)pending=requestAnimationFrame(draw)};const measure=()=>{if(motionPreference.matches)return;range=Math.max(0,document.documentElement.scrollHeight-innerHeight);ruler.style.setProperty('--ruler-top',Math.max(0,header?.getBoundingClientRect().bottom||0)+'px');queue()};addEventListener('scroll',queue,{passive:true});addEventListener('resize',measure);if('ResizeObserver'in window)new ResizeObserver(measure).observe(document.body);motionPreference.addEventListener('change',()=>{cancelAnimationFrame(pending);pending=0;if(motionPreference.matches)ruler.firstElementChild.style.transform='none';else measure()});measure();}
 const calcEls=['calcWidth','calcHeight','calcQty'].map(id=>document.getElementById(id));const calcResult=document.getElementById('calcResult');function updateDtfCalc(){if(!calcResult||calcEls.some(e=>!e))return;const [w,h,q]=calcEls.map(e=>parseFloat(e.value||'0'));const roll=58;if(w<=0||h<=0||q<=0){calcResult.value='Συμπληρώστε διαστάσεις και τεμάχια για ενδεικτικό υπολογισμό.';return;}const perRow=Math.max(1,Math.floor(roll/(w+1))),rows=Math.ceil(q/perRow),meters=Math.ceil((rows*(h+1))/100*10)/10;calcResult.value=`Περίπου ${meters.toString().replace('.',',')} τρέχοντα μέτρα σε ρολό 58cm (${perRow} σχέδια ανά σειρά). Η τελική τιμή δίνεται με προσφορά, ανάλογα με το αρχείο και την ποσότητα.`;}calcEls.forEach(e=>e?.addEventListener('input',updateDtfCalc));updateDtfCalc();
-document.getElementById('sendCalc')?.addEventListener('click',()=>{updateDtfCalc();const msg=document.querySelector('textarea[name="message"]'),service=document.querySelector('select[name="service_select"]');if(service)service.value='Στάμπες DTF με το μέτρο';if(msg)msg.value=(msg.value?msg.value+'\\n\\n':'')+'Υπολογιστής DTF: '+calcResult.value;document.getElementById('quote')?.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});});
+
+/* AP audit: accessibility and validation enhancements, shared across static pages. */
+(()=>{
+  const MOBILE_BREAKPOINT=1024;
+  const mobile=matchMedia(`(max-width:${MOBILE_BREAKPOINT-1}px)`);
+  const nav=document.querySelector('#nav.mobile-nav')||document.querySelector('#nav');
+  const toggle=document.querySelector('.menu-toggle');
+  const backdrop=document.querySelector('.nav-backdrop');
+  const focusable='a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+  function resetMenu(){
+    nav?.classList.remove('open');toggle?.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false');
+    document.documentElement.classList.remove('menu-open');document.body.classList.remove('menu-open');
+    document.documentElement.style.overflow='';document.body.style.overflow='';
+    if(backdrop){backdrop.classList.remove('open');backdrop.hidden=true;backdrop.inert=true;backdrop.setAttribute('aria-hidden','true');}
+  }
+  if(backdrop){backdrop.hidden=true;backdrop.inert=true;backdrop.setAttribute('aria-hidden','true');}
+  mobile.addEventListener('change',e=>{if(!e.matches)resetMenu()});
+  document.addEventListener('click',e=>{if(e.target===toggle&&mobile.matches&&backdrop){requestAnimationFrame(()=>{const open=nav?.classList.contains('open');backdrop.hidden=!open;backdrop.inert=!open;backdrop.setAttribute('aria-hidden',String(!open));});}});
+
+  const filterButtons=[...document.querySelectorAll('.filter-btn')],cards=[...document.querySelectorAll('.work-card')];
+  const count=document.getElementById('filterCount'),empty=document.getElementById('portfolioEmpty');
+  function applyFilter(button){const filter=button.dataset.filter;let visible=0;filterButtons.forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});cards.forEach(card=>{const show=filter==='Όλα'||(card.dataset.categories||card.dataset.category||'').split('|').includes(filter);card.hidden=!show;card.style.display=show?'block':'none';if(show)visible++;});if(count)count.textContent=`${visible} ${visible===1?'δείγμα':'δείγματα'}${filter==='Όλα'?'':' · '+filter}`;if(empty)empty.hidden=visible!==0;}
+  filterButtons.forEach(button=>button.addEventListener('click',()=>applyFilter(button)));if(filterButtons.length)applyFilter(filterButtons.find(b=>b.classList.contains('active'))||filterButtons[0]);
+
+  const lightbox=document.getElementById('lightbox');let opener=null;
+  function trapFocus(event){if(!lightbox||lightbox.hidden||event.key!=='Tab')return;const nodes=[...lightbox.querySelectorAll(focusable)].filter(x=>!x.hidden);if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}
+  document.addEventListener('keydown',trapFocus);
+  document.querySelectorAll('.work-open').forEach(button=>button.addEventListener('click',()=>{opener=button;requestAnimationFrame(()=>lightbox?.querySelector('.lightbox-close')?.focus())}));
+  function restoreLightboxFocus(){if(lightbox?.hidden)opener?.focus({preventScroll:true});}
+  lightbox?.querySelector('.lightbox-close')?.addEventListener('click',()=>setTimeout(restoreLightboxFocus));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lightbox?.hidden)setTimeout(restoreLightboxFocus)});
+
+  const params=new URLSearchParams(location.search);
+  document.querySelectorAll('.quote-form').forEach(form=>{
+    const service=form.elements.service_context,project=form.elements.project_context;
+    if(service)service.value=params.get('service')||'';if(project)project.value=params.get('project')||'';
+    const status=form.querySelector('.quote-status'),errors=form.querySelector('.form-errors');
+    const invalid=(message)=>{errors.textContent=message;status.textContent='';errors.focus({preventScroll:true});};
+    form.addEventListener('submit',event=>{
+      const contact=(form.elements.contact?.value||'').trim(),file=(form.elements.file_link?.value||'').trim();
+      const isValidContact=value=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)||/^\+?[0-9][0-9\s().-]{6,}$/.test(value);
+      const isValidUrl=value=>{try{const u=new URL(value);return /^https?:$/.test(u.protocol)}catch{return false}};
+      if(!isValidContact(contact)){event.preventDefault();invalid('Συμπληρώστε έγκυρο email ή ελληνικό/διεθνές τηλέφωνο.');return;}
+      if(file&&!isValidUrl(file)){event.preventDefault();invalid('Το link αρχείου πρέπει να είναι έγκυρο URL (http ή https).');return;}
+      errors.textContent='';status.textContent='Θα ανοίξει το πρόγραμμα email σας με τα στοιχεία για έλεγχο πριν τα στείλετε.';
+    });
+  });
+
+  const width=document.getElementById('calcWidth'),height=document.getElementById('calcHeight'),qty=document.getElementById('calcQty'),result=document.getElementById('calcResult');
+  function validDecimal(input){const raw=input?.value.trim()||'';return /^\d+(?:[.,]\d)?$/.test(raw)&&Number.isFinite(Number(raw.replace(',','.')))&&Number(raw.replace(',','.'))>0;}
+  function calculateDtf(){if(!result||!width||!height||!qty)return null;if(!validDecimal(width)||!validDecimal(height)||!/^[1-9]\d*$/.test(qty.value.trim())){result.textContent='Συμπληρώστε θετικές διαστάσεις έως ένα δεκαδικό και ακέραιο αριθμό τεμαχίων.';return null;}const w=Number(width.value.replace(',','.')),h=Number(height.value.replace(',','.')),q=Number(qty.value),roll=58,margin=1;const layouts=[[w,h,'χωρίς περιστροφή'],[h,w,'με περιστροφή']].map(([a,b,orientation])=>{const across=Math.floor(roll/(a+margin));if(across<1)return null;const rows=Math.ceil(q/across),cm=rows*(b+margin);return {a,b,orientation,across,rows,cm,meters:Math.ceil(cm)/100};}).filter(Boolean);if(!layouts.length){result.textContent='Οι διαστάσεις δεν χωρούν στο ρολό 58cm με περιθώριο 1cm σε κάθε άξονα.';return null;}const best=layouts.reduce((x,y)=>y.meters<x.meters?y:x);result.textContent=`Ενδεικτικά ${best.meters.toFixed(2).replace('.',',')} τρέχοντα μέτρα · ${best.across} ανά σειρά · ${best.orientation}. Ρολό 58cm και περιθώριο 1cm ανά σχέδιο σε πλάτος και μήκος.`;return {w,h,q,margin,roll,...best};}
+  [width,height,qty].forEach(input=>input?.addEventListener('input',calculateDtf));calculateDtf();
+  document.getElementById('sendCalc')?.addEventListener('click',()=>{const data=calculateDtf();if(!data)return;const form=document.querySelector('.quote-form'),message=form?.elements.message;if(message&&!message.dataset.dtfInserted){message.value=(message.value?message.value+'\n\n':'')+`Υπολογιστής DTF\nΔιαστάσεις: ${data.w} × ${data.h} cm\nΤεμάχια: ${data.q}\nΡολό: ${data.roll}cm\nΠεριθώριο: ${data.margin}cm ανά σχέδιο / και στους δύο άξονες\nΠροσανατολισμός: ${data.orientation}\nΑποτέλεσμα: ${data.meters.toFixed(2).replace('.',',')} τρέχοντα μέτρα`;message.dataset.dtfInserted='true';}if(form?.elements.quantity)form.elements.quantity.value=`${data.q} τεμάχια · ${data.w} × ${data.h} cm`;form?.querySelector('[name="service_context"]')&&(form.elements.service_context.value='Στάμπες DTF με το μέτρο');});
+
+  document.querySelectorAll('.map-load').forEach(button=>button.addEventListener('click',()=>{const target=document.getElementById(button.dataset.mapTarget),src=button.dataset.mapSrc;if(target&&src&&!target.querySelector('iframe')){const frame=document.createElement('iframe');frame.src=src;frame.title='Χάρτης Adapt Print';frame.loading='lazy';frame.referrerPolicy='no-referrer-when-downgrade';frame.allowFullscreen=true;target.replaceChildren(frame);button.hidden=true;}}));
+})();
