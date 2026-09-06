@@ -337,3 +337,30 @@ main .home-route-links{display:grid;gap:8px;margin-top:auto;padding-top:4px}
 main .home-route-links a,main .home-routes-all{font-weight:800;text-underline-offset:4px}
 main .home-routes-all{display:inline-flex;gap:8px;align-items:center;margin-top:24px;color:var(--ink)}
 @media(max-width:767px){main .home-route-grid{grid-template-columns:1fr}main .home-route-card{padding:18px}}
+
+
+/* Home routing repair: three concise, image-led real-work cards. */
+main#main>section.home-routes{padding:var(--section-sm) 0 var(--section-md)!important;background:linear-gradient(180deg,#fff 0%,rgba(0,168,232,.09) 100%)}
+main .home-routes .section-head{margin-bottom:22px}
+main .home-route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+main .home-route-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius-m);background:#fff;box-shadow:0 10px 28px rgba(13,14,16,.08)}
+main .home-route-image{display:block;overflow:hidden;background:#e9edf0;aspect-ratio:16/10}
+main .home-route-image img{width:100%;height:100%;object-fit:cover;transition:transform 260ms var(--ease)}
+main .home-route-card:hover .home-route-image img{transform:scale(1.03)}
+main .home-route-copy{display:grid;gap:5px;padding:15px 16px 16px}
+main .home-route-copy .micro-label{font-size:.64rem;line-height:1.2}
+main .home-route-copy h3{margin:0;font-size:1.2rem!important}
+main .home-route-link{display:inline-flex;align-items:center;gap:7px;margin-top:3px;color:var(--ink);font-size:.88rem;font-weight:850;text-decoration:none;text-underline-offset:4px}
+main .home-route-link:hover,main .home-route-link:focus-visible{text-decoration:underline}
+main .home-routes-all{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:.92rem}
+@media(max-width:767px){main#main>section.home-routes{padding-top:var(--section-sm)!important;padding-bottom:var(--section-md)!important}main .home-routes .section-head{margin-bottom:18px}main .home-route-grid{grid-template-columns:1fr;gap:14px}main .home-route-card{display:grid;grid-template-columns:minmax(132px,42%) 1fr;align-items:stretch}main .home-route-image{aspect-ratio:auto;min-height:142px}main .home-route-copy{align-content:center;padding:14px 14px}main .home-route-link{font-size:.82rem;line-height:1.35}}
+@media(max-width:420px){main .home-route-card{grid-template-columns:1fr}main .home-route-image{aspect-ratio:16/9;min-height:0}main .home-route-copy{padding:14px 15px 16px}}
+
+/* Guarantee the mobile DTF action clears the fixed WhatsApp control. */
+@media(max-width:480px){main .home-intro-media .moved-head-actions .btn{width:calc(100% - 84px)!important}}
+
+/* Keep the fixed chat control clear of the first mobile DTF action. */
+@media(max-width:480px){.floating-whatsapp{bottom:94px}}
+
+/* Prioritize unobstructed route cards on compact home screens. */
+@media(max-width:480px){.floating-whatsapp{display:none}}
