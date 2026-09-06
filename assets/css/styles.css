@@ -102,6 +102,9 @@ body.menu-open .floating-whatsapp{display:none!important}
 @media(max-width:374px){.mobile-nav.open{left:14px!important;right:14px!important;top:80px!important;padding-left:16px!important;padding-right:16px!important}}
 @media(prefers-reduced-motion:reduce){.mobile-nav.open{animation:none!important}}
 
+/* Keep the mobile DTF action out of the fixed WhatsApp tap target. */
+@media(max-width:480px){main .home-intro-media .moved-head-actions{padding-right:84px}}
+
 
 /* Scroll performance stabilization: no sticky header height morph, lighter paints */
 .site-header,.site-header.scrolled{height:var(--header-h)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:box-shadow 160ms var(--ease)!important;will-change:auto!important;contain:layout paint!important}.header-inner,.site-header.scrolled .header-inner{height:var(--header-h)!important;min-height:var(--header-h)!important;padding-top:0!important;padding-bottom:0!important;transition:none!important}.site-header.scrolled{box-shadow:0 8px 24px rgba(13,14,16,.08)!important}.topbar{transition:none!important}.topbar::before,.site-header::before{display:none!important}.reveal{will-change:auto!important;transition:opacity 260ms var(--ease),transform 260ms var(--ease)!important}.reveal:not(.visible){transform:translate3d(0,10px,0)!important}.reveal.from-right:not(.visible),.reveal.from-left:not(.visible){transform:translate3d(0,10px,0)!important}.service-tile a,.work-card,.work-cta{will-change:auto!important}.page-hero,.contact-hero{contain:paint!important}.registration-motion .reg{will-change:auto!important}
