@@ -364,3 +364,6 @@ main .home-routes-all{display:inline-flex;align-items:center;gap:8px;margin-top:
 
 /* Keep the fixed chat control available without covering homepage route cards. */
 @media(max-width:480px){main .home-routes>.wrap{padding-right:84px}.floating-whatsapp{display:grid}}
+
+/* AP audit additions: shared accessible states, no visual-system rewrite. */
+.filter-count,.portfolio-empty,.calc-help,.quote-status,.form-errors{margin:.75rem 0;color:var(--muted)}.form-errors:not(:empty){padding:.75rem 1rem;border-left:4px solid var(--magenta);background:#fff0f5;color:var(--ink)}.quote-status:not(:empty){padding:.75rem 1rem;border-left:4px solid var(--cyan);background:#effaff;color:var(--ink)}.portfolio-empty{padding:1rem;border:1px solid var(--line);border-radius:var(--radius-s);background:#fff}.map-consent{display:grid;place-content:center;gap:1rem;padding:1.25rem;text-align:center;background:var(--paper-2)}.map-consent p{margin:0}.nav-backdrop[hidden]{display:none!important}@media(max-width:1023px){.hero-photographic,.page-head{min-width:0}.hero-photographic .hero-frame,.page-head .wrap{min-width:0}.hero-photographic h1,main h1{max-width:100%;overflow-wrap:anywhere}}@media(max-width:320px){:root{--gutter:14px}main .hero-photographic .hero-actions,.hero-photographic .action-row{min-width:0}.hero-photographic .btn{white-space:normal}}
