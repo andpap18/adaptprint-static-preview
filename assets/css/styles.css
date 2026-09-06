@@ -323,3 +323,14 @@ main .scroll-ruler i{display:block;width:100%;height:270px;background:repeating-
 @media(prefers-reduced-motion:reduce){main .scroll-ruler{display:none}}
 
 .mobile-nav.open .nav-mobile-cta .btn-primary{color:#0d0e10!important;border-color:#0d0e10!important}
+
+/* IA home/services: Home routes visitors to the authoritative services catalogue. */
+main .home-routes{background:linear-gradient(180deg,#fff,var(--section-cyan))}
+main .home-route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+main .home-route-card{display:flex;min-width:0;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-m);background:var(--surface);box-shadow:0 8px 24px rgba(13,14,16,.08)}
+main .home-route-card h3{margin:0}
+main .home-route-card p{margin:0;color:var(--muted);font-size:.94rem;line-height:1.5}
+main .home-route-links{display:grid;gap:8px;margin-top:auto;padding-top:4px}
+main .home-route-links a,main .home-routes-all{font-weight:800;text-underline-offset:4px}
+main .home-routes-all{display:inline-flex;gap:8px;align-items:center;margin-top:24px;color:var(--ink)}
+@media(max-width:767px){main .home-route-grid{grid-template-columns:1fr}main .home-route-card{padding:18px}}
