@@ -1,0 +1,39 @@
+/* Privacy only: preserve the shared shell and legal content. */
+main#main.privacy-refined > section.page-head {
+  min-height: 0;
+  padding: 36px 0 32px !important;
+  border-bottom: 1px solid var(--line);
+}
+.privacy-refined .page-head h1 { font-size: clamp(2rem, 3.5vw, 3.2rem); }
+.privacy-refined .page-head .legal-updated { font-size: .85rem; color: var(--muted); }
+main#main.privacy-refined > section.legal-page { padding: 44px 0 72px !important; background: #fff; }
+.privacy-refined .privacy-layout { display: grid; grid-template-columns: 270px minmax(0, 800px); gap: clamp(40px, 5vw, 80px); justify-content: space-between; align-items: start; }
+.privacy-refined .privacy-sidebar { position: sticky; top: calc(var(--header-h) + 24px); }
+.privacy-refined .privacy-contents-label { margin: 0 0 16px; font-size: .82rem; font-weight: 800; color: var(--muted); }
+.privacy-refined .legal-toc { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; max-width: none; }
+.privacy-refined .legal-toc a { padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; font-size: .9rem; font-weight: 600; line-height: 1.5; }
+.privacy-refined .legal-toc a:hover { transform: none; color: var(--accent-dark); }
+.privacy-refined .legal-toc a:focus-visible, .privacy-refined summary:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 4px; }
+.privacy-refined .legal-card { width: 100%; max-width: none; padding: 0; margin: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; font-size: 1rem; line-height: 1.85; }
+main#main.privacy-refined .legal-card h2 { margin: 36px 0 16px; padding-top: 32px; border-top: 1px solid var(--line); font-size: clamp(1.25rem, 1.1rem + .6vw, 1.65rem) !important; line-height: 1.35 !important; letter-spacing: -.025em !important; scroll-margin-top: 20px; }
+main#main.privacy-refined .legal-card h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.privacy-refined .legal-card p { margin: 0 0 16px; max-width: none; overflow-wrap: anywhere; }
+.privacy-refined .legal-card p:last-child { margin-bottom: 0; }
+.privacy-refined .privacy-mobile-contents { display: none; }
+@media (max-width: 900px) {
+  main#main.privacy-refined > section.page-head { padding: 24px 0 !important; }
+  main#main.privacy-refined > section.legal-page { padding: 24px 0 48px !important; }
+  .privacy-refined .privacy-layout { display: block; }
+  .privacy-refined .privacy-sidebar { display: none; }
+  .privacy-refined .privacy-mobile-contents { display: block; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
+  .privacy-refined summary { padding: 14px 16px; cursor: pointer; font-size: .95rem; font-weight: 800; }
+  .privacy-refined .privacy-mobile-contents .legal-toc { padding: 0 16px 8px; }
+  .privacy-refined .legal-toc a:last-child { border-bottom: 0; }
+  .privacy-refined .legal-card { line-height: 1.8; }
+  main#main.privacy-refined .legal-card h2 { margin-top: 28px; padding-top: 28px; }
+}
+
+/* Keep the existing retention list readable within the legal column. */
+.privacy-refined .legal-card ul { margin: 0 0 20px; padding-left: 1.4em; }
+.privacy-refined .legal-card li { padding-left: .25em; margin-bottom: 10px; overflow-wrap: anywhere; }
+.privacy-refined .legal-card li:last-child { margin-bottom: 0; }
