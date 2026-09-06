@@ -1,22 +1,25 @@
 const fs = require('fs');
 const path = require('path');
-const page = fs.readFileSync(path.join(__dirname, 'stampes-dtf-me-to-metro', 'index.html'), 'utf8');
-
-function required(fragment, label) {
-  if (!page.includes(fragment)) throw new Error(`${label}: missing ${fragment}`);
-}
-function forbidden(fragment, label) {
-  if (page.includes(fragment)) throw new Error(`${label}: stale fragment ${fragment}`);
-}
-
-required('class="dtf-quick-guide section-block"', 'compact DTF quick guide');
-required('class="dtf-visual-grid"', 'real-work DTF image grid');
-required('rola-dtf-me-to-metro-ergastirio.webp', 'production image');
-required('dtf-efarmogi-se-skouro-yfasma.webp', 'application image');
-required('dtf-paragogi-leptomereia-stampas.webp', 'detail image');
-required('class="dtf-compact-process"', 'compact production process');
-required('class="dtf-trust-strip"', 'separate trust strip');
-required('class="form-section final-panel final-panel-form dtf-quote-panel"', 'distinct quote panel');
-forbidden('<section class="social-proof reveal">', 'old dark trust card');
-forbidden('<div class="copy-columns">', 'long two-column SEO wall');
-console.log('PASS compact visual DTF page assertions');
+const assert = require('assert');
+const page = fs.readFileSync(path.join(__dirname, 'stampes-dtf-me-to-metro/index.html'), 'utf8');
+const home = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+// Supersedes the text-only hero and redundant gallery/process requirements.
+const hero = page.match(/<section class="dtf-hero">[\s\S]*?<\/section>/)?.[0];
+assert(hero, 'Image-led split hero replaces the empty text-only page head');
+assert(hero.includes('ektypotis-dtf-fournos-shaker-ergastirio'), 'Verified unbranded production equipment photograph in first section');
+assert(page.includes('class="dtf-faq-photo"'), 'Second real photo fills FAQ aside');
+assert(page.includes('class="dtf-roll-safe-crop"'), 'Roll photo restricted to blank lower-right ends; full image has customer crest');
+assert((page.match(/<img /g)||[]).length >= 4, 'Two content photographs plus shared header/footer logos');
+assert(hero.includes('fetchpriority="high"') && !hero.includes('loading="lazy"'), 'Hero image eagerly loaded');
+assert(hero.includes('href="#calculator"') && hero.includes('href="#quote"'), 'Both conversion routes immediately available');
+for (const stale of ['class="product-detail-grid"', 'production-info', 'dtf-compact-process', 'dtf-visual-grid', 'dtf-trust-strip']) assert(!page.includes(stale), `Redundant design removed: ${stale}`);
+for (const hook of ['calculator', 'calcWidth', 'calcHeight', 'calcQty', 'calcHelp', 'calcResult', 'sendCalc', 'quote']) assert(page.includes(`id="${hook}"`), `Preserved ${hook}`);
+assert(page.includes('Ρολό 58cm. Υπολογίζεται ρητό περιθώριο 1cm ανά σχέδιο και στους δύο άξονες.'));
+const proof = home.match(/<section class="social-proof home-proof reveal">[\s\S]*?<\/section>/)[0].replace('home-proof reveal', 'home-proof dtf-proof');
+assert(page.includes(proof), 'Exact HOME trust content and stars, without scroll-reveal dependency');
+assert(page.indexOf('home-proof dtf-proof') < page.indexOf('dtf-quote-panel'), 'Independent trust precedes form');
+assert(page.includes('class="dtf-seo-details"'));
+assert(page.includes('noindex,follow'));
+assert(page.includes('<title>Στάμπες DTF με το Μέτρο | Adapt Print</title>'));
+assert(page.includes('<link rel="canonical" href="https://adaptprint.gr/stampes-dtf-me-to-metro/">'));
+console.log('PASS image-led DTF layout, exact HOME trust, SEO and calculator/form contracts');
