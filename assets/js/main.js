@@ -115,19 +115,26 @@ const calcEls=['calcWidth','calcHeight','calcQty'].map(id=>document.getElementBy
 
   const params=new URLSearchParams(location.search);
   document.querySelectorAll('.quote-form').forEach(form=>{
-    const service=form.elements.service_context,project=form.elements.project_context;
-    if(service)service.value=params.get('service')||'';if(project)project.value=params.get('project')||'';
-    const status=form.querySelector('.quote-status'),errors=form.querySelector('.form-errors');
-    const invalid=(message)=>{errors.textContent=message;status.textContent='';errors.focus({preventScroll:true});};
-    form.addEventListener('submit',event=>{
-      const contact=(form.elements.contact?.value||'').trim(),file=(form.elements.file_link?.value||'').trim();
-      const isValidContact=value=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)||/^\+?[0-9][0-9\s().-]{6,}$/.test(value);
-      const isValidUrl=value=>{try{const u=new URL(value);return /^https?:$/.test(u.protocol)}catch{return false}};
-      if(!isValidContact(contact)){event.preventDefault();invalid('Συμπληρώστε έγκυρο email ή ελληνικό/διεθνές τηλέφωνο.');return;}
-      if(file&&!isValidUrl(file)){event.preventDefault();invalid('Το link αρχείου πρέπει να είναι έγκυρο URL (http ή https).');return;}
-      errors.textContent='';status.textContent='Θα ανοίξει το πρόγραμμα email σας με τα στοιχεία για έλεγχο πριν τα στείλετε.';
+      const service=form.elements.service_context,project=form.elements.project_context;
+      if(service)service.value=params.get('service')||'';if(project)project.value=params.get('project')||'';
+      const status=form.querySelector('.quote-status'),errors=form.querySelector('.form-errors');
+      const invalid=(message)=>{errors.textContent=message;status.textContent='';errors.focus({preventScroll:true});};
+      const isProductionQuoteHost=location.hostname==='adaptprint.gr'||location.hostname==='www.adaptprint.gr';
+      form.addEventListener('submit',async event=>{
+        const contact=(form.elements.contact?.value||'').trim(),file=(form.elements.file_link?.value||'').trim();
+        const isValidContact=value=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)||/^\+?[0-9][0-9\s().-]{6,}$/.test(value);
+        const isValidUrl=value=>{try{const u=new URL(value);return /^https?:$/.test(u.protocol)}catch{return false}};
+        if(!isValidContact(contact)){event.preventDefault();invalid('Συμπληρώστε έγκυρο email ή ελληνικό/διεθνές τηλέφωνο.');return;}
+        if(file&&!isValidUrl(file)){event.preventDefault();invalid('Το link αρχείου πρέπει να είναι έγκυρο URL (http ή https).');return;}
+        errors.textContent='';
+        if(!isProductionQuoteHost){status.textContent='Θα ανοίξει το πρόγραμμα email σας με τα στοιχεία για έλεγχο πριν τα στείλετε.';return;}
+        event.preventDefault();
+        const submit=form.querySelector('[type="submit"]');if(submit)submit.disabled=true;
+        status.textContent='Αποστολή αιτήματος…';
+        const payload={name:form.elements.name?.value||'',contact,service:form.elements.service_select?.value||'',quantity:form.elements.quantity?.value||'',deadline:form.elements.deadline?.value||'',file_link:file,message:form.elements.message?.value||'',service_context:service?.value||'',project_context:project?.value||'',website:''};
+        try{const response=await fetch('/api/quote.php',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});const data=await response.json().catch(()=>({}));if(!response.ok||!data.ok)throw new Error(data.message||'Δεν ήταν δυνατή η αποστολή.');status.textContent=data.message||'Το αίτημά σας στάλθηκε.';form.reset();if(service)service.value=params.get('service')||'';if(project)project.value=params.get('project')||'';}catch(error){invalid(error.message||'Δεν ήταν δυνατή η αποστολή. Καλέστε μας ή στείλτε email.');}finally{if(submit)submit.disabled=false;}
+      });
     });
-  });
 
   const width=document.getElementById('calcWidth'),height=document.getElementById('calcHeight'),qty=document.getElementById('calcQty'),result=document.getElementById('calcResult');
   function validDecimal(input){const raw=input?.value.trim()||'';return /^\d+(?:[.,]\d)?$/.test(raw)&&Number.isFinite(Number(raw.replace(',','.')))&&Number(raw.replace(',','.'))>0;}
