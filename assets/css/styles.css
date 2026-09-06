@@ -362,5 +362,5 @@ main .home-routes-all{display:inline-flex;align-items:center;gap:8px;margin-top:
 /* Keep the fixed chat control clear of the first mobile DTF action. */
 @media(max-width:480px){.floating-whatsapp{bottom:94px}}
 
-/* Prioritize unobstructed route cards on compact home screens. */
-@media(max-width:480px){.floating-whatsapp{display:none}}
+/* Keep the fixed chat control available without covering homepage route cards. */
+@media(max-width:480px){main .home-routes>.wrap{padding-right:84px}.floating-whatsapp{display:grid}}
