@@ -1,0 +1,39 @@
+/* UV landing only; shared shell and other pages are untouched. */
+main#main.uv-page > section.uv-intro { padding: 32px 0 40px; }
+.uv-page .uv-intro-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 64px; align-items: center; }
+.uv-page .uv-intro-copy { max-width: 720px; min-width: 0; }
+.uv-page h1 { font-size: clamp(2rem, 3.8vw, 3.5rem); line-height: 1.1; letter-spacing: -.045em; margin: 12px 0 20px; }
+.uv-page .uv-intro-copy p { max-width: 620px; font-size: 1.06rem; line-height: 1.65; margin: 0 0 24px; }
+.uv-page .uv-sample { margin: 0; background: #fff; border: 1px solid #e7e1d7; border-radius: 22px; overflow: hidden; }
+.uv-page .uv-sample img { width: 100%; height: 320px; object-fit: contain; display: block; background: #f1efeb; }
+.uv-page .uv-sample figcaption { padding: 12px 16px; font-size: .79rem; line-height: 1.5; color: #555; }
+main#main.uv-page > section.uv-information { padding: 32px 0 48px; }
+.uv-page .uv-information-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: start; border-top: 1px solid #dedbd4; padding-top: 32px; }
+.uv-page h2 { font-size: clamp(1.35rem, 2.2vw, 1.9rem); line-height: 1.2; margin: 10px 0 18px; letter-spacing: -.025em; }
+.uv-page .uv-applications p { font-size: .97rem; line-height: 1.7; margin: 0 0 16px; }
+.uv-page .uv-notice { border-left: 3px solid #f6821f; padding: 0 0 0 18px; margin-top: 24px; }
+.uv-page .uv-notice h3 { font-size: 1rem; margin: 0 0 8px; }
+.uv-page .uv-notice p { font-size: .9rem; margin-bottom: 0; }
+.uv-page .uv-requirements { background: #fff; border: 1px solid #e7e1d7; border-radius: 20px; padding: 26px 28px; }
+.uv-page .uv-requirements ul { list-style: none; margin: 0; padding: 0; }
+.uv-page .uv-requirements li { padding: 13px 0; border-top: 1px solid #eae6df; }
+.uv-page .uv-requirements li:last-child { padding-bottom: 0; }
+.uv-page .uv-requirements strong,.uv-page .uv-requirements li span { display: block; }
+.uv-page .uv-requirements strong { font-size: .95rem; }
+.uv-page .uv-requirements li span { font-size: .86rem; line-height: 1.6; color: #60636b; margin-top: 4px; }
+@media(max-width: 800px) {
+ .uv-page .uv-intro-grid { grid-template-columns: 1fr .65fr; gap: 24px; }
+ .uv-page .uv-information-grid { gap: 24px; }
+ .uv-page .uv-requirements { padding: 22px; }
+}
+@media(max-width: 600px) {
+ main#main.uv-page > section.uv-intro { padding: 24px 0 26px; }
+ .uv-page .uv-intro-grid,.uv-page .uv-information-grid { grid-template-columns: 1fr; gap: 24px; }
+ .uv-page h1 { font-size: 2rem; margin: 10px 0 16px; }
+ .uv-page .uv-intro-copy p { font-size: .97rem; line-height: 1.6; margin-bottom: 20px; }
+ .uv-page .uv-intro-copy .btn { width: 100%; }
+ .uv-page .uv-sample img { height: 280px; }
+ main#main.uv-page > section.uv-information { padding: 0 0 30px; }
+ .uv-page .uv-information-grid { padding-top: 26px; }
+ .uv-page .uv-requirements { padding: 22px; }
+}
