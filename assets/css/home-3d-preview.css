@@ -1,0 +1,40 @@
+/* Homepage only: logo sizing exception; navigation structure is unchanged. */
+.site-header.home-preview-header .logo.brand-lockup{width:190px!important;flex:0 0 190px;max-width:none}
+.site-header.home-preview-header .logo.brand-lockup img{display:block;width:190px!important;height:auto!important;max-height:none!important;max-width:none!important;object-fit:contain}
+.site-header.home-preview-header,.site-header.home-preview-header .header-inner{height:118px!important;min-height:118px!important;max-height:118px!important}
+@media(max-width:820px){.site-header.home-preview-header .logo.brand-lockup{width:145px!important;flex-basis:145px}.site-header.home-preview-header .logo.brand-lockup img{width:145px!important}.site-header.home-preview-header,.site-header.home-preview-header .header-inner{height:96px!important;min-height:96px!important;max-height:96px!important}}
+main#main>section.home-depth-hero{position:relative;isolation:isolate;overflow:hidden;min-height:730px;padding:44px 0 58px!important;background:#14171b;background-image:radial-gradient(ellipse at 80% 25%,#21444e66,transparent 54%),radial-gradient(ellipse at 72% 90%,#75374440,transparent 48%)}
+main .home-depth-hero .home-depth-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center;width:calc(100% - 96px);max-width:1440px}
+.home-depth-copy{position:relative;z-index:2;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.home-preview-brand{width:270px;padding:8px 15px;background:#fff;border-radius:3px;box-shadow:0 12px 35px #0002;margin-bottom:4px}
+.home-preview-brand img{display:block;width:100%;height:auto}
+main .home-depth-hero .kicker{font-size:10px;letter-spacing:.12em;color:#c0c8cb;line-height:1.7}
+main .home-depth-hero h1{font-size:clamp(38px,4.1vw,63px);line-height:1.09;letter-spacing:-.045em;max-width:640px}
+main .home-depth-hero .home-depth-copy>p{font-size:14px;line-height:1.7;color:#b9c2c7;max-width:450px;margin:0}
+main .home-depth-hero .home-depth-copy>.btn{margin:2px 0 0;min-height:52px}
+/* Composite each framed photo atomically: shared preserve-3d slices floating borders during entrance. */
+.home-depth-stage{position:relative;width:100%;height:570px;perspective:1400px;transform-style:flat;pointer-events:none}
+.home-depth-stage:before{content:"";position:absolute;inset:9% -4% 8% 2%;border:1px solid #ffffff12;border-radius:50%;transform:rotate(-28deg)}
+.home-depth-stage:after{content:"";position:absolute;inset:18% -10% 0% 8%;border:1px solid #ffffff0b;border-radius:50%;transform:rotate(24deg);z-index:-1}
+.home-depth-card{position:absolute;margin:0!important;transform-style:preserve-3d;transform:translate3d(0,0,var(--z)) rotate(var(--r));will-change:auto}
+.home-depth-float{width:100%;height:100%;border-radius:9px;overflow:hidden;border:5px solid #f4f0e7;box-shadow:0 28px 55px #0007,0 2px 4px #0005;background:#e8e4da;transform:translateY(0)}
+.home-depth-card img{display:block;width:100%;height:100%;object-fit:cover}
+.home-depth-card--1{width:70%;height:235px;left:1%;top:10%;--r:-7deg;--z:45px;z-index:3}
+.home-depth-card--1 img{object-position:40% center}
+.home-depth-card--2{width:33%;height:257px;right:0%;top:6%;--r:10deg;--z:-25px;z-index:1}
+.home-depth-card--3{width:37%;height:260px;left:8%;bottom:1%;--r:-11deg;--z:-10px;z-index:2}
+.home-depth-card--4{width:47%;height:246px;right:0%;bottom:6%;--r:8deg;--z:75px;z-index:4}
+.home-depth-card--4 img{object-position:51% center}
+.home-depth-hero[data-motion="active"] .home-depth-float{animation:homeDepthFloat 7s ease-in-out infinite;animation-delay:-2s}
+.home-depth-hero[data-motion="active"] .home-depth-card--2 .home-depth-float{animation-duration:8.5s;animation-delay:-5s}
+.home-depth-hero[data-motion="active"] .home-depth-card--3 .home-depth-float{animation-duration:9s;animation-delay:-3s}
+.home-depth-hero[data-motion="active"] .home-depth-card--4 .home-depth-float{animation-duration:7.8s;animation-delay:-4s}
+@keyframes homeDepthFloat{0%,100%{transform:translateY(0) rotate(.3deg)}50%{transform:translateY(-8px) rotate(-.3deg)}}
+main .home-depth-hero+section.home-intro-media>.wrap{display:block}
+main .home-depth-hero+section .home-photo-aside{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}
+main .home-depth-hero+section .home-service-links{justify-content:center}
+@media(max-width:1179px){main .home-depth-hero .home-depth-layout{width:calc(100% - 64px);gap:20px;grid-template-columns:1fr 1fr}.home-depth-stage{height:520px}.home-preview-brand{width:230px}.home-depth-card--1{height:195px}.home-depth-card--2{height:215px}.home-depth-card--3{height:220px}.home-depth-card--4{height:207px}main .home-depth-hero+section .home-photo-aside{grid-template-columns:1fr 1fr}main .home-depth-hero+section .home-service-links{justify-content:flex-start}}
+@media(max-width:820px){main#main>section.home-depth-hero{min-height:0;padding:30px 0 36px!important}main .home-depth-hero .home-depth-layout{grid-template-columns:1fr;gap:24px;width:calc(100% - 40px)}.home-depth-copy{gap:16px}.home-preview-brand{width:218px}main .home-depth-hero h1{font-size:44px;max-width:610px}main .home-depth-hero .home-depth-copy>p{max-width:610px}.home-depth-stage{height:430px;max-width:620px;margin:auto}.home-depth-card--1{height:190px;top:6%;--r:-5deg;--z:0px}.home-depth-card--2{height:195px;top:3%;--r:7deg;--z:0px}.home-depth-card--3{height:215px;bottom:0;--r:-7deg;--z:0px}.home-depth-card--4{height:205px;bottom:5%;--r:5deg;--z:0px}}
+@media(max-width:480px){main .home-depth-hero .home-depth-layout{gap:20px}.home-preview-brand{width:206px;padding:5px 12px;margin:0}main .home-depth-hero .kicker{font-size:8px;letter-spacing:.055em}main .home-depth-hero h1{font-size:36px;line-height:1.12}main .home-depth-hero .home-depth-copy>p{font-size:12px;line-height:1.6}.home-depth-stage{height:285px}.home-depth-card--1{width:68%;height:126px;top:5%}.home-depth-card--2{width:34%;height:144px;top:1%}.home-depth-card--3{width:37%;height:146px;left:5%;bottom:1%}.home-depth-card--4{width:49%;height:143px;right:1%;bottom:5%}.home-depth-float{border-width:3px;border-radius:6px;box-shadow:0 12px 28px #0006}main .home-depth-hero+section .home-photo-aside{grid-template-columns:1fr;gap:18px}}
+@media(prefers-reduced-motion:reduce){.home-depth-hero .home-depth-card,.home-depth-hero .home-depth-float{animation:none!important;transition:none!important}.home-depth-hero .home-depth-card{transform:translate3d(0,0,var(--z)) rotate(var(--r))!important}}
+@media(hover:none),(pointer:coarse){.home-depth-hero .home-depth-float{animation:none!important}}
