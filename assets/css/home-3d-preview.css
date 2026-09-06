@@ -28,10 +28,42 @@ main .home-depth-hero .home-depth-copy>.btn{margin:2px 0 0;min-height:52px}
 main .home-depth-hero+section.home-intro-media>.wrap{display:block}
 main .home-depth-hero+section .home-photo-aside{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}
 main .home-depth-hero+section .home-service-links{justify-content:center}
-/* Keep the secondary CTA frame clear of the fixed mobile WhatsApp control. */
-@media(max-width:480px){main .home-intro-media .moved-head-actions{max-width:calc(100% - 64px)}}
+/* Mobile intro styles are below the hero rules; no shared button changes. */
 @media(max-width:1179px){main .home-depth-hero .home-depth-layout{width:calc(100% - 64px);gap:20px;grid-template-columns:1fr 1fr}.home-depth-stage{height:520px}.home-preview-brand{width:230px}.home-depth-card--1{height:195px}.home-depth-card--2{height:215px}.home-depth-card--3{height:220px}.home-depth-card--4{height:207px}main .home-depth-hero+section .home-photo-aside{grid-template-columns:1fr 1fr}main .home-depth-hero+section .home-service-links{justify-content:flex-start}}
 @media(max-width:820px){main#main>section.home-depth-hero{min-height:0;padding:30px 0 36px!important}main .home-depth-hero .home-depth-layout{grid-template-columns:1fr;gap:24px;width:calc(100% - 40px)}.home-depth-copy{gap:16px}.home-preview-brand{width:218px}main .home-depth-hero h1{font-size:44px;max-width:610px}main .home-depth-hero .home-depth-copy>p{max-width:610px}.home-depth-stage{height:430px;max-width:620px;margin:auto}.home-depth-card--1{height:190px;top:6%;--r:-5deg;--z:0px}.home-depth-card--2{height:195px;top:3%;--r:7deg;--z:0px}.home-depth-card--3{height:215px;bottom:0;--r:-7deg;--z:0px}.home-depth-card--4{height:205px;bottom:5%;--r:5deg;--z:0px}}
 @media(max-width:480px){main .home-depth-hero .home-depth-layout{gap:20px}.home-preview-brand{width:206px;padding:5px 12px;margin:0}main .home-depth-hero .kicker{font-size:8px;letter-spacing:.055em}main .home-depth-hero h1{font-size:36px;line-height:1.12}main .home-depth-hero .home-depth-copy>p{font-size:12px;line-height:1.6}.home-depth-stage{height:285px}.home-depth-card--1{width:68%;height:126px;top:5%}.home-depth-card--2{width:34%;height:144px;top:1%}.home-depth-card--3{width:37%;height:146px;left:5%;bottom:1%}.home-depth-card--4{width:49%;height:143px;right:1%;bottom:5%}.home-depth-float{border-width:3px;border-radius:6px;box-shadow:0 12px 28px #0006}main .home-depth-hero+section .home-photo-aside{grid-template-columns:1fr;gap:18px}}
 @media(prefers-reduced-motion:reduce){.home-depth-hero .home-depth-card,.home-depth-hero .home-depth-float{animation:none!important;transition:none!important}.home-depth-hero .home-depth-card{transform:translate3d(0,0,var(--z)) rotate(var(--r))!important}}
 @media(hover:none),(pointer:coarse){.home-depth-hero .home-depth-float{animation:none!important}}
+
+/* Homepage mobile intro only: one CTA, four services, one trust panel.
+   An explicit whole-pixel frame avoids relying on the shared button sheen.
+   The reported iPhone top-edge loss was not reproduced in local WebKit. */
+@media(max-width:480px){
+  main .home-intro-media .home-photo-aside{grid-template-columns:minmax(0,1fr);gap:16px}
+  main .home-intro-media .moved-head-actions{width:100%;max-width:none;min-width:0}
+  main .home-intro-media .moved-head-actions .btn{
+    width:100%;min-height:52px;padding:12px 16px;border:2px solid var(--ink);
+    border-radius:999px;background:var(--paper);color:var(--ink);font-size:15px;
+    line-height:24px;transform:none;transform-style:flat;overflow:visible;isolation:isolate;
+    transition:background 180ms ease;
+  }
+  main .home-intro-media .moved-head-actions .btn::before{content:none}
+  main .home-intro-media .moved-head-actions .btn:hover{background:var(--paper-2)}
+  main .home-intro-media .moved-head-actions .btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  main .home-intro-media .home-service-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+  main .home-intro-media .home-service-links a{display:flex;align-items:center;min-height:44px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;text-underline-offset:3px}
+  main .home-intro-media .home-photo-aside .trust-metrics-strip{overflow:visible}
+  main .home-intro-media .home-photo-aside .trust-metrics-strip>.wrap{
+    display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;
+    width:100%;padding:0 12px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2);
+  }
+  main .home-intro-media .trust-metrics-strip>.wrap>span{
+    min-width:0;min-height:44px;padding:8px 0;border:0;border-radius:0;background:none;
+    font-size:12px;line-height:1.4;gap:4px;white-space:nowrap;
+  }
+  main .home-intro-media .trust-metrics-strip>.wrap>span:first-child{justify-content:flex-start}
+  main .home-intro-media .trust-metrics-strip>.wrap>span:nth-child(2){justify-content:flex-end}
+  main .home-intro-media .trust-metrics-strip>.wrap>span:last-child{grid-column:1/-1;min-height:40px;border-top:1px solid var(--line);justify-content:flex-start}
+  main .home-intro-media .trust-metrics-strip .stars{gap:2px}
+  main .home-intro-media .trust-metrics-strip .stars svg{width:14px;height:14px}
+}
