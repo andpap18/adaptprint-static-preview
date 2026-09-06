@@ -1,0 +1,29 @@
+/* Wholesale-only refinement; shared shell and quote form remain unchanged. */
+main#main.wholesale-page > section.page-head { min-height: 270px; }
+.wholesale-page .page-head h1 { font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1.1; }
+.wholesale-page .page-head p { max-width: 660px; }
+.wholesale-page .wholesale-services { padding: 36px 0 40px; }
+.wholesale-page .wholesale-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.wholesale-page .wholesale-card { min-width: 0; overflow: hidden; isolation: isolate; border: 1px solid rgba(13,14,16,.1); border-radius: 20px; background: #fff; box-shadow: 0 10px 32px rgba(13,14,16,.05); }
+.wholesale-page .wholesale-card figure { margin: 0; overflow: hidden; height: 240px; position: relative; z-index: 0; background: #e9e9e5; }
+.wholesale-page .wholesale-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+.wholesale-page .wholesale-card:nth-child(2) img { object-position: 50% 60%; }
+.wholesale-page .wholesale-card-copy { position: relative; z-index: 2; background: #fff; padding: 24px; }
+.wholesale-page .wholesale-card h2 { margin: 8px 0 14px; font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1.25; letter-spacing: -.025em; }
+.wholesale-page .wholesale-card h2 span { white-space: nowrap; }
+.wholesale-page .wholesale-card p { font-size: .96rem; line-height: 1.6; margin: 0 0 10px; }
+.wholesale-page .wholesale-card p:last-child { margin-bottom: 0; }
+.wholesale-page .wholesale-brief { display: grid; grid-template-columns: 1.15fr 1fr; gap: 30px; align-items: center; margin-top: 26px; padding: 24px 0 0; border-top: 1px solid rgba(13,14,16,.15); }
+.wholesale-page .wholesale-brief h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.wholesale-page .wholesale-brief p { margin: 0; font-size: .94rem; line-height: 1.6; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+ .wholesale-page .wholesale-card:hover img { transform: scale(1.035); }
+}
+@media (max-width: 700px) {
+ main#main.wholesale-page > section.page-head { min-height: 240px; }
+ .wholesale-page .wholesale-services { padding: 24px 0 28px; }
+ .wholesale-page .wholesale-grid { grid-template-columns: 1fr; gap: 20px; }
+ .wholesale-page .wholesale-card figure { height: 190px; }
+ .wholesale-page .wholesale-card-copy { padding: 20px; }
+ .wholesale-page .wholesale-brief { grid-template-columns: 1fr; gap: 12px; margin-top: 22px; padding-top: 20px; }
+}
