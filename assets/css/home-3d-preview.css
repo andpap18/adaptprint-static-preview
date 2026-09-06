@@ -55,15 +55,15 @@ main .home-depth-hero+section .home-service-links{justify-content:center}
   main .home-intro-media .home-photo-aside .trust-metrics-strip{overflow:visible}
   main .home-intro-media .home-photo-aside .trust-metrics-strip>.wrap{
     display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;
-    width:100%;padding:0 12px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2);
+    width:calc(100% - 56px);margin-right:56px;padding:0 12px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2);
   }
   main .home-intro-media .trust-metrics-strip>.wrap>span{
     min-width:0;min-height:44px;padding:8px 0;border:0;border-radius:0;background:none;
     font-size:12px;line-height:1.4;gap:4px;white-space:nowrap;
   }
   main .home-intro-media .trust-metrics-strip>.wrap>span:first-child{justify-content:flex-start}
-  main .home-intro-media .trust-metrics-strip>.wrap>span:nth-child(2){justify-content:flex-end}
+  main .home-intro-media .trust-metrics-strip>.wrap>span:nth-child(2){justify-content:flex-end;font-size:11px}
   main .home-intro-media .trust-metrics-strip>.wrap>span:last-child{grid-column:1/-1;min-height:40px;border-top:1px solid var(--line);justify-content:flex-start}
   main .home-intro-media .trust-metrics-strip .stars{gap:2px}
-  main .home-intro-media .trust-metrics-strip .stars svg{width:14px;height:14px}
+  main .home-intro-media .trust-metrics-strip .stars svg{width:10px;height:10px}
 }
