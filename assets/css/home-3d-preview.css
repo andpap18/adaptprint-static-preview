@@ -35,7 +35,30 @@ main .home-depth-hero+section .home-service-links{justify-content:center}
 @media(prefers-reduced-motion:reduce){.home-depth-hero .home-depth-card,.home-depth-hero .home-depth-float{animation:none!important;transition:none!important}.home-depth-hero .home-depth-card{transform:translate3d(0,0,var(--z)) rotate(var(--r))!important}}
 @media(hover:none),(pointer:coarse){.home-depth-hero .home-depth-float{animation:none!important}}
 
-/* Homepage mobile intro only: one CTA, four services, one trust panel.
+/* Approved homepage refinement: keep motion room inside the hero. */
+@media(min-width:821px){
+  .home-depth-card--1{width:72%;left:-2%;height:245px}
+  .home-depth-card--2{width:34%;right:5%;height:267px}
+  .home-depth-card--3{width:38%;left:5%;height:270px}
+  .home-depth-card--4{width:49%;right:5%;height:256px}
+}
+@media(min-width:821px) and (max-width:1179px){
+  .home-depth-card--1{height:203px}.home-depth-card--2{height:224px}
+  .home-depth-card--3{height:229px}.home-depth-card--4{height:216px}
+}
+main .home-intro-media .home-location{font-size:13px;color:var(--muted);white-space:nowrap}
+main .home-intro-media .home-location b{color:var(--ink)}
+main .home-routes .home-route-card{padding:12px;gap:0;isolation:isolate}
+main .home-routes .home-route-image{aspect-ratio:3/2;border-radius:10px}
+main .home-routes .home-route-copy{position:relative;z-index:1;background:#fff}
+@media(max-width:767px){
+  main .home-routes .home-route-image{aspect-ratio:auto}
+}
+@media(max-width:420px){
+  main .home-routes .home-route-image{aspect-ratio:3/2}
+}
+
+/* Homepage mobile intro only: one CTA and four services.
    An explicit whole-pixel frame avoids relying on the shared button sheen.
    The reported iPhone top-edge loss was not reproduced in local WebKit. */
 @media(max-width:480px){

@@ -8,7 +8,7 @@
   const base=card=>{const s=getComputedStyle(card);return {z:parseFloat(s.getPropertyValue('--z'))||0,r:parseFloat(s.getPropertyValue('--r'))||0}};
   let poses=cards.map(base);
   function draw(){raf=0;if(!enabled()||!visible||entering)return;x+=(tx-x)*.085;y+=(ty-y)*.085;
-    cards.forEach((c,i)=>{const d=[1,.38,.62,1.25][i],p=poses[i];c.style.transform=`translate3d(${x*12*d}px,${y*9*d-scroll*(i%2?35:58)*d}px,${p.z-scroll*45*d}px) rotateX(${-y*3*d}deg) rotateY(${x*4*d}deg) rotate(${p.r+scroll*(i%2?3:-3)}deg)`});
+    cards.forEach((c,i)=>{const d=[1,.38,.62,1.25][i],p=poses[i];c.style.transform=`translate3d(${x*16*d}px,${y*12*d-scroll*(i%2?35:58)*d}px,${p.z-scroll*45*d}px) rotateX(${-y*4*d}deg) rotateY(${x*5.5*d}deg) rotate(${p.r+scroll*(i%2?3:-3)}deg)`});
     if(Math.abs(tx-x)+Math.abs(ty-y)>.005)raf=requestAnimationFrame(draw);
   }
   const queue=()=>{if(!raf&&enabled()&&visible&&!entering)raf=requestAnimationFrame(draw)};
