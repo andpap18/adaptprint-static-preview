@@ -58,6 +58,46 @@ main .home-routes .home-route-copy{position:relative;z-index:1;background:#fff}
   main .home-routes .home-route-image{aspect-ratio:3/2}
 }
 
+/* Six-photo hero: three staggered pairs, with room for depth and idle drift.
+   Keep the original four subjects and motion; the middle pair adds product variety. */
+.home-depth-hero .home-depth-stage{height:640px}
+.home-depth-hero .home-depth-card--1{width:64%;height:200px;left:2%;top:4%}
+.home-depth-hero .home-depth-card--2{width:28%;height:215px;right:4%;top:1%}
+.home-depth-hero .home-depth-card--3{width:31%;height:200px;left:9%;bottom:0}
+.home-depth-hero .home-depth-card--4{width:42%;height:205px;right:3%;bottom:2%}
+.home-depth-hero .home-depth-card--4 img{object-position:51% 85%}
+.home-depth-hero .home-depth-card--5{width:43%;height:180px;left:2%;top:36%;--r:-5deg;--z:25px;z-index:4}
+.home-depth-hero .home-depth-card--6{width:30%;height:205px;right:8%;top:34%;--r:7deg;--z:55px;z-index:5}
+.home-depth-hero[data-motion="active"] .home-depth-card--5 .home-depth-float{animation-duration:8.2s;animation-delay:-1s}
+.home-depth-hero[data-motion="active"] .home-depth-card--6 .home-depth-float{animation-duration:9.4s;animation-delay:-6s}
+@media(min-width:821px) and (max-width:1179px){
+  .home-depth-hero .home-depth-stage{height:570px}
+  .home-depth-hero .home-depth-card--1{height:170px;left:6%}
+  .home-depth-hero .home-depth-card--2{height:185px}
+  .home-depth-hero .home-depth-card--3{height:175px}
+  .home-depth-hero .home-depth-card--4{height:165px}
+  .home-depth-hero .home-depth-card--5{height:150px}
+  .home-depth-hero .home-depth-card--6{height:180px}
+}
+@media(max-width:820px){
+  .home-depth-hero .home-depth-stage{height:550px}
+  .home-depth-hero .home-depth-card--1{height:175px}
+  .home-depth-hero .home-depth-card--2{height:180px}
+  .home-depth-hero .home-depth-card--3{height:180px}
+  .home-depth-hero .home-depth-card--4{height:175px}
+  .home-depth-hero .home-depth-card--5{height:150px;--z:0px}
+  .home-depth-hero .home-depth-card--6{height:175px;--z:0px}
+}
+@media(max-width:480px){
+  .home-depth-hero .home-depth-stage{height:420px}
+  .home-depth-hero .home-depth-card--1{width:63%;height:120px;left:1%;top:3%}
+  .home-depth-hero .home-depth-card--2{width:29%;height:138px;right:2%;top:0}
+  .home-depth-hero .home-depth-card--3{width:36%;height:145px;left:7%;bottom:0}
+  .home-depth-hero .home-depth-card--4{width:48%;height:139px;right:2%;bottom:1%}
+  .home-depth-hero .home-depth-card--5{width:48%;height:116px;left:1%;top:36%}
+  .home-depth-hero .home-depth-card--6{width:35%;height:143px;right:4%;top:32%}
+}
+
 /* Homepage mobile intro only: one CTA and four services.
    An explicit whole-pixel frame avoids relying on the shared button sheen.
    The reported iPhone top-edge loss was not reproduced in local WebKit. */
