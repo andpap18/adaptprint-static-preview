@@ -32,5 +32,6 @@
     empty.hidden = visible !== 0;
   }
   buttons.forEach(button => button.addEventListener('click', () => applyFilter(button)));
-  if (buttons.length) applyFilter(buttons.find(button => button.classList.contains('active')) || buttons[0]);
+  const requestedCategory = new URLSearchParams(location.search).get('category');
+  if (buttons.length) applyFilter(buttons.find(button => button.dataset.filter === requestedCategory) || buttons.find(button => button.classList.contains('active')) || buttons[0]);
 })();

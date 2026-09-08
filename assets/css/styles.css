@@ -388,3 +388,9 @@ main .home-routes-all{display:inline-flex;align-items:center;gap:8px;margin-top:
 .dtf-trust-strip{padding-top:28px;padding-bottom:18px;background:#fff}.dtf-trust-strip>.wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 22px;border:1px solid rgba(13,14,16,.11);border-radius:var(--radius-l);background:linear-gradient(100deg,#fff 0%,#fff9d8 100%)}.dtf-trust-strip .kicker,.dtf-trust-strip strong,.dtf-trust-strip span{display:block}.dtf-trust-strip strong{font-size:1.08rem}.dtf-trust-strip span{margin-top:3px;color:var(--muted);font-size:.91rem}.dtf-trust-strip .btn-quiet{white-space:nowrap;--btn-outline:var(--ink);color:var(--ink)}
 .dtf-quote-panel{margin-top:0;border-top:0!important;border-radius:0 0 var(--radius-l) var(--radius-l)}
 @media(max-width:720px){.dtf-visual-grid{grid-template-columns:1fr 1fr;gap:10px}.dtf-visual-grid figure{min-height:150px}.dtf-visual-grid__lead{grid-column:1/-1;grid-row:auto;min-height:255px!important}.dtf-answer-grid,.dtf-compact-process ol{grid-template-columns:1fr}.dtf-trust-strip{padding-top:18px;padding-bottom:0}.dtf-trust-strip>.wrap{display:block;padding:18px}.dtf-trust-strip .btn-quiet{margin-top:14px;width:100%}.dtf-compact-process li{padding-top:16px;padding-bottom:16px}}
+
+/* Approved client footer asset and independent service photographs. */
+.site-footer .footer-logo{background:transparent;padding:0;border-radius:0}
+.services-page .service-photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.services-page .service-photo-pair>picture,.services-page .service-photo-pair>img{min-width:0;width:100%;height:100%;overflow:hidden}
+.services-page .service-photo-pair picture img{width:100%;height:100%;object-fit:cover}
