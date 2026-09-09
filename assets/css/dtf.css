@@ -9,7 +9,8 @@ main#main .dtf-hero h1{font-size:clamp(2.3rem,4.3vw,4rem)!important;line-height:
 .dtf-hero .btn-secondary{color:#fff;border-color:#87929f;background:transparent}
 .dtf-hero__note{display:block;max-width:390px;margin-top:20px;font-size:.75rem;line-height:1.6;color:#b7c1cd}
 .dtf-hero__image{position:relative;margin:0;height:470px;overflow:hidden;border-radius:22px;background:#ddd}
-.dtf-hero__image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%}
+.dtf-hero__image picture{display:block;width:100%;height:100%;background:#111820}
+.dtf-hero__image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center 52%}
 .dtf-hero__image figcaption{position:absolute;inset:auto 0 0;display:flex;justify-content:space-between;gap:12px;padding:40px 20px 18px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff;font-size:.73rem;font-weight:700}
 main#main>.dtf-order-essentials{padding:28px 0!important;background:#fff}
 .dtf-order-essentials .dtf-answer-grid{gap:0}

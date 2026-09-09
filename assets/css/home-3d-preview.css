@@ -130,3 +130,43 @@ main .home-routes .home-route-copy{position:relative;z-index:1;background:#fff}
   main .home-intro-media .trust-metrics-strip .stars{gap:2px}
   main .home-intro-media .trust-metrics-strip .stars svg{width:10px;height:10px}
 }
+
+/* Equipment leads the six-photo composition; original depth controller retained.
+   Tight studio export removes backdrop only, never equipment or the front roll. */
+.home-depth-hero .home-depth-stage{height:660px}
+.home-depth-hero .home-depth-card--machine{width:57%;height:auto;aspect-ratio:113/95;left:4%;top:1%;bottom:auto;--r:-4deg;--z:45px;z-index:6}
+.home-depth-card--machine .home-depth-float{background:#eaf0f2}
+.home-depth-card--machine img{object-fit:contain;object-position:center}
+.home-depth-hero .home-depth-card--1{width:38%;height:110px;left:3%;top:63%;--r:-6deg}
+.home-depth-hero .home-depth-card--2{width:23%;height:190px;right:7%;top:12%;--r:7deg}
+.home-depth-hero .home-depth-card--4{width:26%;height:205px;right:9%;bottom:21%;--r:-3deg}
+.home-depth-hero .home-depth-card--5{width:36%;height:120px;left:4%;top:auto;bottom:0;--r:-5deg}
+.home-depth-hero .home-depth-card--6{width:19%;height:200px;right:37%;top:auto;bottom:1%;--r:3deg}
+@media(min-width:821px){.home-depth-hero .home-depth-card--machine{max-width:420px}.home-depth-hero .home-depth-card--5{bottom:-1.5%}}
+@media(min-width:821px) and (max-width:1179px){
+ .home-depth-hero .home-depth-stage{height:540px}
+ .home-depth-hero .home-depth-card--machine{left:5%;width:56%;top:3%}
+ .home-depth-hero .home-depth-card--1{top:57%;height:95px}
+ .home-depth-hero .home-depth-card--2{height:160px;top:10%;right:4%}
+ .home-depth-hero .home-depth-card--4{height:170px;width:24%}
+ .home-depth-hero .home-depth-card--5{height:105px}
+ .home-depth-hero .home-depth-card--6{height:165px}
+}
+@media(max-width:820px){
+ .home-depth-hero .home-depth-stage{height:620px}
+ .home-depth-hero .home-depth-card--machine{--z:0px}
+ .home-depth-hero .home-depth-card--1{top:60%}
+}
+@media(max-width:480px){
+ .home-depth-hero .home-depth-stage{height:clamp(450px,calc(100vw + 60px),540px)}
+ .home-depth-hero .home-depth-card--machine{left:14%;top:1%;width:72%;--r:-3deg}
+ .home-depth-hero .home-depth-card--1{width:60%;height:85px;left:auto;right:3%;top:53%;--r:4deg}
+ .home-depth-hero .home-depth-card--2{width:26%;height:110px;left:3%;right:auto;top:51%;--r:-5deg}
+ .home-depth-hero .home-depth-card--4{width:30%;height:100px;right:3%;bottom:4%;--r:4deg}
+ .home-depth-hero .home-depth-card--5{width:31%;height:85px;left:3%;bottom:0;--r:-5deg}
+ .home-depth-hero .home-depth-card--6{width:23%;height:100px;left:39%;right:auto;bottom:0;--r:2deg}
+}
+@media(min-width:421px) and (max-width:480px){
+ .home-depth-hero .home-depth-card--1{top:56%}
+ .home-depth-hero .home-depth-card--2{top:54%}
+}
