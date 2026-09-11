@@ -1,0 +1,16 @@
+/* Scoped artwork guidance; no shared layout or calculator overrides. */
+#main .print-artwork-guidance { margin-top: 22px; border-top: 1px solid #cbd2d8; border-bottom: 1px solid #cbd2d8; background: #fff; color: #26333d; scroll-margin-top: 140px; }
+#main .print-artwork-guidance > summary { display: list-item; list-style: disclosure-closed inside; cursor: pointer; padding: 17px 18px; font-size: 16px; font-weight: 700; line-height: 1.5; }
+#main .print-artwork-guidance[open] > summary { list-style-type: disclosure-open; }
+#main .print-artwork-guidance > summary::after { content: none; }
+#main .print-guidance-helper { display: block; margin-top: 3px; font-size: 13px; font-weight: 400; color: #52616c; }
+#main .print-guidance-body { max-width: 85ch; padding: 10px 18px 18px; font-size: 15px; line-height: 1.75; }
+#main .print-guidance-body p { color: #26333d; margin: 0 0 14px; }
+#main .print-guidance-body ul { padding-left: 22px; margin: 0 0 18px; }
+#main .print-guidance-body li { margin-bottom: 12px; }
+#main .print-quote-guidance { max-width: 85ch; margin: 20px 0 0; font-size: 14px; line-height: 1.75; color: #44535f; }
+#main.wholesale-page .wholesale-artwork-guidance { margin-top: 32px; padding-top: 28px; border-top: 1px solid #cbd2d8; max-width: 85ch; }
+#main.wholesale-page .wholesale-artwork-guidance h2 { font-size: clamp(21px, 2.3vw, 28px); margin-bottom: 14px; }
+#main.wholesale-page .wholesale-artwork-guidance p { font-size: 15px; line-height: 1.75; margin: 0 0 14px; color: #44535f; }
+#main .print-artwork-guidance a, #main .print-quote-guidance a, #main.wholesale-page .wholesale-artwork-guidance a { color: #17556f; text-decoration: underline; text-underline-offset: 3px; }
+#main .print-artwork-guidance > summary:focus-visible, #main .print-artwork-guidance a:focus-visible, #main .print-quote-guidance a:focus-visible, #main.wholesale-page .wholesale-artwork-guidance a:focus-visible { outline: 3px solid #17556f; outline-offset: 4px; }
